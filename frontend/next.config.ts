@@ -1,13 +1,13 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === "production";
-const repoName = "/mindatlas";
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const basePath = isGitHubPages ? "/mindatlas" : "";
 
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
-  basePath: isProd ? repoName : "",
-  assetPrefix: isProd ? `${repoName}/` : "",
+  basePath: basePath,
+  assetPrefix: basePath ? `${basePath}/` : undefined,
   images: {
     unoptimized: true,
   },
