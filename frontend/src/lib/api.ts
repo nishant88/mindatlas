@@ -1,4 +1,5 @@
 // Frontend API Client for MindAtlas
+import { getComprehensiveArticle } from "./comprehensiveArticles";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1";
 
@@ -109,6 +110,62 @@ export const FALLBACK_ARTICLES = [
     article_type: "deep_dive_synthesis",
     status: "published",
     published_at: "2024-04-01T16:20:00Z"
+  },
+  {
+    id: 6,
+    slug: "loss-aversion-and-prospect-theory",
+    title: "Loss Aversion & Prospect Theory: The Asymmetry of Risk",
+    subtitle: "Why the psychological agony of losing $100 stings twice as sharply as the joy of gaining $100.",
+    summary: "Human psychology processes potential gains and losses through an asymmetrical S-shaped value function. Losses are psychologically twice as potent as equivalent rewards.",
+    primary_discipline: "Behavioral Economics",
+    subdisciplines: ["Behavioral Economics", "Decision Theory", "Neuroeconomics"],
+    reading_time_mins: 16,
+    difficulty_level: "intermediate",
+    article_type: "deep_dive_synthesis",
+    status: "published",
+    published_at: "2024-04-05T10:00:00Z"
+  },
+  {
+    id: 7,
+    slug: "first-principles-reasoning",
+    title: "First-Principles Thinking & Axiomatic Decomposition",
+    subtitle: "Boiling complex systems down to their most fundamental, irreducible physical truths and reasoning up from there.",
+    summary: "Rather than reasoning by analogy, first principles deconstructs a problem to physics, economics, and irreducible truths.",
+    primary_discipline: "Critical Thinking & Logic",
+    subdisciplines: ["Logic", "Philosophy of Science", "Engineering Epistemology"],
+    reading_time_mins: 15,
+    difficulty_level: "intermediate",
+    article_type: "deep_dive_synthesis",
+    status: "published",
+    published_at: "2024-04-10T12:00:00Z"
+  },
+  {
+    id: 8,
+    slug: "occams-razor-and-epistemic-parsimony",
+    title: "Occam's Razor & The Principle of Parsimony",
+    subtitle: "Why the simplest explanation with the fewest unsupported entities is mathematically and probabilistically superior.",
+    summary: "When competing hypotheses predict identical empirical outcomes, select the one that introduces the fewest unproven entities and auxiliary assumptions.",
+    primary_discipline: "Philosophy",
+    subdisciplines: ["Epistemology", "Information Theory", "Bayesian Statistics"],
+    reading_time_mins: 14,
+    difficulty_level: "foundational",
+    article_type: "deep_dive_synthesis",
+    status: "published",
+    published_at: "2024-04-15T14:00:00Z"
+  },
+  {
+    id: 9,
+    slug: "predictive-processing-and-the-bayesian-brain",
+    title: "Predictive Processing & The Free Energy Principle",
+    subtitle: "Conscious perception is not a passive camera capturing reality, but a top-down generative hallucination constrained by sensory error.",
+    summary: "Your brain does not wait for photons and soundwaves to construct reality. It continually projects top-down predictions and only processes the error signal.",
+    primary_discipline: "Neuroscience",
+    subdisciplines: ["Neuroscience", "Cognitive Science", "Philosophy of Mind"],
+    reading_time_mins: 21,
+    difficulty_level: "advanced",
+    article_type: "deep_dive_synthesis",
+    status: "published",
+    published_at: "2024-04-20T16:00:00Z"
   }
 ];
 
@@ -246,7 +303,8 @@ export async function getArticles(discipline?: string, difficulty?: string) {
 }
 
 export async function getArticleBySlug(slug: string) {
-  return fetchWithFallback<typeof FALLBACK_ARTICLE_DETAIL>(`/articles/${slug}`, FALLBACK_ARTICLE_DETAIL);
+  const fallback = getComprehensiveArticle(slug);
+  return fetchWithFallback<any>(`/articles/${slug}`, fallback);
 }
 
 export async function getKnowledgeGraph(rootId?: number, depth: number = 2, relType?: string) {
