@@ -1,14 +1,10 @@
 # Netlify Configuration for MindAtlas
-# Enables zero-config deployment on Netlify
+# Pure static export build — reliable, fast, zero serverless errors
 
 [build]
   base = "frontend"
-  publish = ".next"
+  publish = "out"
   command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "20"
-  NPM_FLAGS = "--legacy-peer-deps"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
