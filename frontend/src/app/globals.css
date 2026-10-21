@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --bg-page: #1e1a17;
+  --bg-deep: #171412;
+  --bg-surface: #272220;
+  --bg-surface-raised: #322b28;
+  --ink-primary: #f2ebe2;
+  --ink-secondary: #b8ada2;
+  --ink-muted: #82756a;
+  --border-subtle: #3d3532;
+  --border-strong: #574d48;
+  --dot-color: #38302b;
+}
+
+html.light {
+  --bg-page: #fbf7f1;
+  --bg-deep: #f3ece2;
+  --bg-surface: #ffffff;
+  --bg-surface-raised: #f7f0e6;
+  --ink-primary: #27201b;
+  --ink-secondary: #574b41;
+  --ink-muted: #82756a;
+  --border-subtle: #e5dacf;
+  --border-strong: #c2b2a1;
+  --dot-color: #dfd5c8;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--ink-primary);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-heading {
+  font-family: var(--font-nunito), ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, sans-serif;
+  font-weight: 800;
+}
+
+/* Hero Dot Matrix Background */
+.bg-dot-matrix {
+  background-color: var(--bg-page);
+  background-image: radial-gradient(circle, var(--dot-color) 1.25px, transparent 1.25px);
+  background-size: 20px 20px;
+}
+
+/* Sketched / Hand-drawn Card Border */
+.sketch-border {
+  border: 2px dashed #d5cf66;
+  border-radius: 28px;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}

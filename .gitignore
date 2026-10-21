@@ -1,0 +1,23 @@
+# System
+.DS_Store
+*.pyc
+__pycache__/
+.pytest_cache/
+*.log
+
+# Dependencies
+node_modules/
+backend/venv/
+
+# Build artifacts
+frontend/.next/
+frontend/out/
+.netlify/
+
+# SQLite databases
+*.db
+*.sqlite3
+
+# Env
+.env
+.env.local
