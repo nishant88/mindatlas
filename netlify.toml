@@ -1,6 +1,4 @@
-# Netlify Configuration for MindAtlas
-# Pure static export build — reliable, fast, zero serverless errors
-
+# Netlify Configuration for MindAtlas (Monorepo root config)
 [build]
   base = "frontend"
   publish = "out"

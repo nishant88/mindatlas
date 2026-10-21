@@ -1,5 +1,4 @@
-# Netlify Configuration (if site base directory is set directly to 'frontend')
-
+# Netlify Configuration for MindAtlas Static Export
 [build]
   publish = "out"
   command = "npm run build"

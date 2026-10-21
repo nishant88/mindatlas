@@ -46,13 +46,12 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
   // Resolve the actual slug reliably across SSR, SSG, client hydration, and dynamic navigation
   const slug = useMemo(() => {
-    if (initialSlug && initialSlug !== "[slug]") {
-      return initialSlug;
-    }
+    // 1. Check dynamic route params from Next.js router
     const paramSlug = Array.isArray(params?.slug) ? params.slug[0] : (params?.slug as string);
     if (paramSlug && paramSlug !== "[slug]") {
       return paramSlug;
     }
+    // 2. Check window.location.pathname in client browser
     if (typeof window !== "undefined") {
       const parts = window.location.pathname.split("/").filter(Boolean);
       const articleIdx = parts.indexOf("articles");
@@ -63,6 +62,10 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
       if (lastPart && lastPart !== "articles" && lastPart !== "[slug]") {
         return lastPart.replace(/\.html$/, "");
       }
+    }
+    // 3. Fallback to initialSlug from Server Component
+    if (initialSlug && initialSlug !== "[slug]") {
+      return initialSlug;
     }
     return "cognitive-dissonance-and-belief-perseverance";
   }, [initialSlug, params]);

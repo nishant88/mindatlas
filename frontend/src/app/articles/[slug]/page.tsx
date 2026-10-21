@@ -1,8 +1,9 @@
 import React, { Suspense } from "react";
+import { Metadata } from "next";
 import ArticleClient from "./ArticleClient";
 import { MENTAL_MODELS } from "@/lib/mindAtlasData";
 import { FALLBACK_ARTICLES } from "@/lib/api";
-import { COMPREHENSIVE_ARTICLES } from "@/lib/comprehensiveArticles";
+import { COMPREHENSIVE_ARTICLES, getComprehensiveArticle } from "@/lib/comprehensiveArticles";
 
 export function generateStaticParams() {
   const slugs = new Set([
@@ -17,13 +18,29 @@ interface PageProps {
   params: Promise<{ slug: string }> | { slug: string };
 }
 
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const resolvedParams = await Promise.resolve(params);
+  const slug = resolvedParams?.slug;
+  const article = slug ? getComprehensiveArticle(slug) : null;
+  if (!article) {
+    return {
+      title: "MindAtlas Treatise Reader — Human Knowledge Library",
+    };
+  }
+  return {
+    title: `${article.title} | MindAtlas`,
+    description: article.subtitle,
+  };
+}
+
 export default async function ArticlePage({ params }: PageProps) {
   const resolvedParams = await Promise.resolve(params);
   const slug = resolvedParams?.slug;
 
   return (
     <Suspense fallback={<div className="p-16 text-center text-[#b8ada2]">Loading reader...</div>}>
-      <ArticleClient initialSlug={slug} />
+      <ArticleClient initialSlug={slug} key={slug || "article-reader"} />
     </Suspense>
   );
 }
+
