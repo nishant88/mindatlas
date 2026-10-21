@@ -37,9 +37,35 @@ import DotMeter from "@/components/DotMeter";
 import RainbowStrip from "@/components/RainbowStrip";
 import MentalModelCard from "@/components/MentalModelCard";
 
-export default function ArticleClient() {
+interface ArticleClientProps {
+  initialSlug?: string;
+}
+
+export default function ArticleClient({ initialSlug }: ArticleClientProps) {
   const params = useParams();
-  const slug = (params?.slug as string) || "cognitive-dissonance-and-belief-perseverance";
+
+  // Resolve the actual slug reliably across SSR, SSG, client hydration, and dynamic navigation
+  const slug = useMemo(() => {
+    if (initialSlug && initialSlug !== "[slug]") {
+      return initialSlug;
+    }
+    const paramSlug = Array.isArray(params?.slug) ? params.slug[0] : (params?.slug as string);
+    if (paramSlug && paramSlug !== "[slug]") {
+      return paramSlug;
+    }
+    if (typeof window !== "undefined") {
+      const parts = window.location.pathname.split("/").filter(Boolean);
+      const articleIdx = parts.indexOf("articles");
+      if (articleIdx !== -1 && parts[articleIdx + 1]) {
+        return parts[articleIdx + 1].replace(/\.html$/, "");
+      }
+      const lastPart = parts[parts.length - 1];
+      if (lastPart && lastPart !== "articles" && lastPart !== "[slug]") {
+        return lastPart.replace(/\.html$/, "");
+      }
+    }
+    return "cognitive-dissonance-and-belief-perseverance";
+  }, [initialSlug, params]);
 
   // Retrieve comprehensive, full-length scholarly treatise
   const article: ComprehensiveArticle = useMemo(() => {

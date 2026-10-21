@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Search, ChevronRight, Shuffle, Sparkles, BookOpen } from "lucide-react";
+import { Search, ChevronRight, Shuffle, Sparkles, BookOpen, ArrowRight } from "lucide-react";
 import RainbowStrip from "@/components/RainbowStrip";
 import DotMeter from "@/components/DotMeter";
 import MentalModelCard from "@/components/MentalModelCard";
@@ -208,6 +208,16 @@ export default function MindAtlasHomePage() {
                     {featuredModel.replicationPunchline}
                   </div>
                 </div>
+
+                {/* Direct Action Link to Full Treatise */}
+                <Link
+                  href={`/articles/${featuredModel.slug}`}
+                  className="mt-4 w-full py-3 px-5 rounded-full bg-[#d5cf66] text-[#232402] font-black text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-[#ded871] transition-all shadow-md group cursor-pointer"
+                >
+                  <BookOpen className="w-4 h-4" />
+                  <span>Read Full 18-Min Treatise</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
             </div>
           </div>

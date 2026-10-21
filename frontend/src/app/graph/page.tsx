@@ -310,13 +310,35 @@ function KnowledgeGraphContent() {
 
             {/* Link to Deep-Dive Article */}
             <div className="pt-6 mt-6 border-t border-[#3d3532]">
-              <Link
-                href="/articles/cognitive-dissonance-and-belief-perseverance"
-                className="w-full py-3 px-4 rounded-full bg-[#d5cf66] text-[#232402] font-black text-xs hover:bg-[#ded871] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
-              >
-                <BookOpen className="w-4 h-4" />
-                <span>Read Full Deep-Dive Article</span>
-              </Link>
+              {(() => {
+                const nodeMap: Record<string, string> = {
+                  "cognitive-dissonance": "cognitive-dissonance-and-belief-perseverance",
+                  "confirmation-bias": "heuristics-biases-and-bounded-rationality",
+                  "motivated-reasoning": "motivated-reasoning-and-identity-protective-cognition",
+                  "falsificationism": "popperian-falsificationism-and-scientific-demarcation",
+                  "prospect-theory": "loss-aversion-and-prospect-theory",
+                  "dual-process-theory": "heuristics-biases-and-bounded-rationality",
+                  "bystander-effect": "the-bystander-effect-re-examined",
+                  "epistemology": "popperian-falsificationism-and-scientific-demarcation",
+                };
+                const targetSlug = selectedNode
+                  ? (nodeMap[selectedNode.slug] || "cognitive-dissonance-and-belief-perseverance")
+                  : "cognitive-dissonance-and-belief-perseverance";
+
+                return (
+                  <Link
+                    href={`/articles/${targetSlug}`}
+                    className="w-full py-3 px-4 rounded-full bg-[#d5cf66] text-[#232402] font-black text-xs hover:bg-[#ded871] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  >
+                    <BookOpen className="w-4 h-4" />
+                    <span>
+                      {selectedNode
+                        ? `Read Full Treatise: ${selectedNode.name}`
+                        : "Read Featured Treatise: Cognitive Dissonance"}
+                    </span>
+                  </Link>
+                );
+              })()}
             </div>
           </div>
         </div>

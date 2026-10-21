@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import Illustration from "./Illustrations";
 import { MentalModel, DISCIPLINES } from "@/lib/mindAtlasData";
 
@@ -69,13 +70,22 @@ export default function MentalModelCard({ model }: MentalModelCardProps) {
         </div>
 
         {/* Bottom Empirical Punchline */}
-        <div className="pt-3 border-t border-[#3d3532]/60">
+        <div className="pt-3 border-t border-[#3d3532]/60 space-y-3">
           <p
             className="text-xs sm:text-sm font-black leading-snug"
             style={{ color: disciplineMeta.color }}
           >
             {model.replicationPunchline}
           </p>
+
+          {/* Action Link to Full Article */}
+          <Link
+            href={`/articles/${model.slug}`}
+            className="w-full py-2.5 px-4 rounded-xl bg-[#1e1a17] hover:bg-[#3d3532] border border-[#3d3532] hover:border-[#d5cf66]/50 text-xs font-bold text-[#d5cf66] flex items-center justify-between transition-all group/btn"
+          >
+            <span>Read Full Treatise ({model.readingTimeMins || 15} min)</span>
+            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1 text-[#d5cf66]" />
+          </Link>
         </div>
       </div>
     </article>
