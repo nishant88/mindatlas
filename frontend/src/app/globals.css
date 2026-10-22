@@ -84,6 +84,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ink-primary);
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: inherit;
+}
+
 .font-heading {
   font-family: var(--font-nunito), ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, sans-serif;
   font-weight: 800;
@@ -190,7 +198,31 @@ html.light [class*="bg-[#2b2622]"] {
   background-color: var(--bg-deep) !important;
 }
 
-/* Text Colors */
+/* Text Colors & Heading Overrides */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6,
+html.light h1 a,
+html.light h2 a,
+html.light h3 a,
+html.light h4 a,
+html.light h5 a,
+html.light h6 a,
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5,
+html[data-theme="light"] h6,
+html[data-theme="light"] h1 a,
+html[data-theme="light"] h2 a,
+html[data-theme="light"] h3 a,
+html[data-theme="light"] h4 a,
+html[data-theme="light"] h5 a,
+html[data-theme="light"] h6 a,
 html.light .text-\[\#f2ebe2\],
 html.light [class*="text-[#f2ebe2]"],
 html.light .text-\[\#f6efe1\],
@@ -199,7 +231,34 @@ html.light .text-\[\#f0e8dc\],
 html.light [class*="text-[#f0e8dc]"],
 html.light .text-\[\#e5dbcf\],
 html.light [class*="text-[#e5dbcf]"] {
-  color: var(--ink-primary) !important;
+  color: #221d19 !important;
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+html.dark h1 a,
+html.dark h2 a,
+html.dark h3 a,
+html.dark h4 a,
+html.dark h5 a,
+html.dark h6 a,
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6,
+html[data-theme="dark"] h1 a,
+html[data-theme="dark"] h2 a,
+html[data-theme="dark"] h3 a,
+html[data-theme="dark"] h4 a,
+html[data-theme="dark"] h5 a,
+html[data-theme="dark"] h6 a {
+  color: #f2ebe2 !important;
 }
 
 html.light .text-\[\#b8ada2\],

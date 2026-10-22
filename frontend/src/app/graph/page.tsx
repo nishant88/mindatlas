@@ -254,15 +254,15 @@ function KnowledgeGraphContent() {
                 </div>
 
                 <div>
-                  <h3 className="font-heading text-2xl font-black text-[#f2ebe2]">
+                  <h3 className="font-heading text-2xl font-black text-[var(--ink-primary)]">
                     {selectedNode.name}
                   </h3>
-                  <p className="text-xs text-[#82756a] mt-1">
+                  <p className="text-xs text-[var(--ink-muted)] mt-1">
                     Importance Rank: #{selectedNode.importance_rank} in Human Knowledge Catalog
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#1e1a17] border border-[#3d3532] text-xs sm:text-sm text-[#b8ada2] leading-relaxed">
+                <div className="p-4 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
                   <span className="font-bold text-[#d5cf66] uppercase tracking-wider text-[10px] block mb-1">
                     Formal Definition:
                   </span>
@@ -271,7 +271,7 @@ function KnowledgeGraphContent() {
 
                 {/* Intellectual Linkages */}
                 <div className="space-y-2 pt-2">
-                  <h4 className="text-xs font-black text-[#f2ebe2] uppercase tracking-wider">
+                  <h4 className="text-xs font-black text-[var(--ink-primary)] uppercase tracking-wider">
                     Intellectual Linkages
                   </h4>
                   <div className="space-y-2 text-xs">
@@ -285,16 +285,16 @@ function KnowledgeGraphContent() {
                         return (
                           <div
                             key={rel.id}
-                            className="p-3 rounded-xl border border-[#3d3532] bg-[#1e1a17]/70"
+                            className="p-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)]/70"
                           >
-                            <div className="flex items-center gap-1.5 font-bold text-[#f2ebe2]">
+                            <div className="flex items-center gap-1.5 font-bold text-[var(--ink-primary)]">
                               <span className="text-[#d5cf66] font-mono text-[11px]">
                                 {rel.relationship_type.replace(/_/g, " ")}
                               </span>
                               <span>&rarr;</span>
                               <span>{otherNode?.name}</span>
                             </div>
-                            <p className="text-[11px] text-[#82756a] mt-1">{rel.rationale}</p>
+                            <p className="text-[11px] text-[var(--ink-muted)] mt-1">{rel.rationale}</p>
                           </div>
                         );
                       })}

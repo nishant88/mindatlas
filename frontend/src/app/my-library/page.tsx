@@ -157,9 +157,9 @@ export default function MyLibraryPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1e1a17] text-[#f2ebe2]">
+    <div className="min-h-screen bg-[var(--bg-page)] text-[var(--ink-primary)]">
       {/* Top Banner */}
-      <div className="bg-dot-matrix py-12 border-b border-[#3d3532]">
+      <div className="bg-dot-matrix py-12 border-b border-[var(--border-subtle)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div>
@@ -167,10 +167,10 @@ export default function MyLibraryPage() {
                 <Lock className="w-3.5 h-3.5" />
                 <span>Private Research Workspace</span>
               </div>
-              <h1 className="font-heading text-4xl sm:text-5xl font-black text-[#f2ebe2] tracking-tight mb-2">
+              <h1 className="font-heading text-4xl sm:text-5xl font-black text-[var(--ink-primary)] tracking-tight mb-2">
                 My Knowledge Library
               </h1>
-              <p className="text-base text-[#b8ada2] max-w-2xl leading-relaxed">
+              <p className="text-base text-[var(--ink-secondary)] max-w-2xl leading-relaxed">
                 Your personal reading progress, synthesized annotations, custom tags, and citation bibliography export.
               </p>
             </div>
@@ -179,21 +179,21 @@ export default function MyLibraryPage() {
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => handleDownloadExport("markdown")}
-                className="px-3.5 py-2 rounded-full border border-[#3d3532] bg-[#272220] hover:bg-[#3d3532] text-xs font-bold text-[#f2ebe2] flex items-center gap-1.5 transition-all cursor-pointer"
+                className="px-3.5 py-2 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-raised)] text-xs font-bold text-[var(--ink-primary)] flex items-center gap-1.5 transition-all cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5 text-[#d5cf66]" />
                 <span>Markdown</span>
               </button>
               <button
                 onClick={() => handleDownloadExport("bibtex")}
-                className="px-3.5 py-2 rounded-full border border-[#3d3532] bg-[#272220] hover:bg-[#3d3532] text-xs font-bold text-[#f2ebe2] flex items-center gap-1.5 transition-all cursor-pointer"
+                className="px-3.5 py-2 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-raised)] text-xs font-bold text-[var(--ink-primary)] flex items-center gap-1.5 transition-all cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5 text-[#d5cf66]" />
                 <span>BibTeX</span>
               </button>
               <button
                 onClick={() => handleDownloadExport("json")}
-                className="px-3.5 py-2 rounded-full border border-[#3d3532] bg-[#272220] hover:bg-[#3d3532] text-xs font-bold text-[#f2ebe2] flex items-center gap-1.5 transition-all cursor-pointer"
+                className="px-3.5 py-2 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-raised)] text-xs font-bold text-[var(--ink-primary)] flex items-center gap-1.5 transition-all cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5 text-[#d5cf66]" />
                 <span>JSON</span>
@@ -202,13 +202,13 @@ export default function MyLibraryPage() {
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex border-b border-[#3d3532] gap-6 text-sm mt-8">
+          <div className="flex border-b border-[var(--border-subtle)] gap-6 text-sm mt-8">
             <button
               onClick={() => setActiveTab("saved")}
               className={`pb-3 font-bold transition-all border-b-2 flex items-center gap-2 cursor-pointer ${
                 activeTab === "saved"
                   ? "border-[#d5cf66] text-[#d5cf66]"
-                  : "border-transparent text-[#82756a] hover:text-[#f2ebe2]"
+                  : "border-transparent text-[var(--ink-muted)] hover:text-[var(--ink-primary)]"
               }`}
             >
               <Bookmark className="w-4 h-4" />
@@ -219,7 +219,7 @@ export default function MyLibraryPage() {
               className={`pb-3 font-bold transition-all border-b-2 flex items-center gap-2 cursor-pointer ${
                 activeTab === "notes"
                   ? "border-[#d5cf66] text-[#d5cf66]"
-                  : "border-transparent text-[#82756a] hover:text-[#f2ebe2]"
+                  : "border-transparent text-[var(--ink-muted)] hover:text-[var(--ink-primary)]"
               }`}
             >
               <FileText className="w-4 h-4" />
@@ -239,7 +239,7 @@ export default function MyLibraryPage() {
               {savedItems.map((item) => (
                 <div
                   key={item.id}
-                  className="p-6 rounded-3xl bg-[#272220] border border-[#3d3532] flex flex-col justify-between gap-4 transition-all hover:border-[#574d48] hover:shadow-xl"
+                  className="p-6 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between gap-4 transition-all hover:border-[var(--border-strong)] hover:shadow-xl"
                 >
                   <div>
                     <div className="flex items-center justify-between text-xs mb-3">
@@ -257,14 +257,14 @@ export default function MyLibraryPage() {
                       </span>
                     </div>
 
-                    <h3 className="font-heading text-xl font-black text-[#f2ebe2] mb-3 hover:text-[#d5cf66] transition-colors">
+                    <h3 className="font-heading text-xl font-black text-[var(--ink-primary)] mb-3 hover:text-[#d5cf66] transition-colors">
                       <Link href={`/articles/${item.slug}`}>
                         {item.title}
                       </Link>
                     </h3>
 
                     {/* Progress Bar */}
-                    <div className="w-full h-2 rounded-full bg-[#1e1a17] overflow-hidden">
+                    <div className="w-full h-2 rounded-full bg-[var(--border-subtle)] overflow-hidden">
                       <div
                         className="h-full bg-[#d5cf66] rounded-full transition-all"
                         style={{ width: `${item.progress}%` }}
@@ -272,8 +272,8 @@ export default function MyLibraryPage() {
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-[#3d3532]/60 flex items-center justify-between text-xs">
-                    <span className="text-[#82756a] flex items-center gap-1">
+                  <div className="pt-4 border-t border-[var(--border-subtle)]/60 flex items-center justify-between text-xs">
+                    <span className="text-[var(--ink-muted)] flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5" /> {item.readingMins} mins
                     </span>
                     <Link
@@ -296,7 +296,7 @@ export default function MyLibraryPage() {
             {/* Create New Note Form */}
             <form
               onSubmit={handleAddNote}
-              className="p-6 sm:p-8 rounded-3xl bg-[#272220] border border-[#3d3532] space-y-4 shadow-xl"
+              className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-4 shadow-xl"
             >
               <h3 className="text-xs font-black text-[#d5cf66] uppercase tracking-wider flex items-center gap-2">
                 <Plus className="w-4 h-4" /> Create Research Note
@@ -307,14 +307,14 @@ export default function MyLibraryPage() {
                   value={newNoteTitle}
                   onChange={(e) => setNewNoteTitle(e.target.value)}
                   placeholder="Note title (e.g. Asymmetric Loss Functions in Decision Science)..."
-                  className="sm:col-span-2 px-4 py-3 rounded-2xl bg-[#1e1a17] border border-[#3d3532] text-[#f2ebe2] placeholder-[#82756a] text-sm focus:outline-none focus:border-[#d5cf66]"
+                  className="sm:col-span-2 px-4 py-3 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] text-[var(--ink-primary)] placeholder-[var(--ink-muted)] text-sm focus:outline-none focus:border-[#d5cf66]"
                 />
                 <input
                   type="text"
                   value={newNoteTag}
                   onChange={(e) => setNewNoteTag(e.target.value)}
                   placeholder="Tag (e.g. Behavioral Economics)"
-                  className="px-4 py-3 rounded-2xl bg-[#1e1a17] border border-[#3d3532] text-[#f2ebe2] placeholder-[#82756a] text-sm focus:outline-none focus:border-[#d5cf66]"
+                  className="px-4 py-3 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] text-[var(--ink-primary)] placeholder-[var(--ink-muted)] text-sm focus:outline-none focus:border-[#d5cf66]"
                 />
               </div>
               <textarea
@@ -322,7 +322,7 @@ export default function MyLibraryPage() {
                 onChange={(e) => setNewNoteContent(e.target.value)}
                 rows={3}
                 placeholder="Draft your synthesized observations, counterarguments, or open research questions..."
-                className="w-full px-4 py-3 rounded-2xl bg-[#1e1a17] border border-[#3d3532] text-[#f2ebe2] placeholder-[#82756a] text-sm focus:outline-none focus:border-[#d5cf66]"
+                className="w-full px-4 py-3 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] text-[var(--ink-primary)] placeholder-[var(--ink-muted)] text-sm focus:outline-none focus:border-[#d5cf66]"
               />
               <button
                 type="submit"
@@ -337,7 +337,7 @@ export default function MyLibraryPage() {
               {notes.map((note) => (
                 <div
                   key={note.id}
-                  className="p-6 rounded-3xl bg-[#272220] border border-[#3d3532] flex flex-col justify-between gap-4"
+                  className="p-6 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between gap-4"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
@@ -345,7 +345,7 @@ export default function MyLibraryPage() {
                         {note.tags.map((t, i) => (
                           <span
                             key={i}
-                            className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#1e1a17] text-[#d5cf66] border border-[#3d3532]"
+                            className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[var(--bg-page)] text-[#d5cf66] border border-[var(--border-subtle)]"
                           >
                             #{t}
                           </span>
@@ -353,22 +353,22 @@ export default function MyLibraryPage() {
                       </div>
                       <button
                         onClick={() => handleDeleteNote(note.id)}
-                        className="text-[#82756a] hover:text-rose-400 p-1 rounded-lg transition-colors cursor-pointer"
+                        className="text-[var(--ink-muted)] hover:text-rose-400 p-1 rounded-lg transition-colors cursor-pointer"
                         title="Delete note"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
 
-                    <h4 className="font-heading text-lg font-black text-[#f2ebe2] mb-2">
+                    <h4 className="font-heading text-lg font-black text-[var(--ink-primary)] mb-2">
                       {note.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-[#b8ada2] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
                       {note.content}
                     </p>
                   </div>
 
-                  <div className="text-[11px] text-[#82756a] pt-3 border-t border-[#3d3532]/60">
+                  <div className="text-[11px] text-[var(--ink-muted)] pt-3 border-t border-[var(--border-subtle)]/60">
                     Updated {note.updated_at}
                   </div>
                 </div>

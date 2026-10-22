@@ -75,13 +75,13 @@ export default function MindAtlasHomePage() {
             {/* Left Column: Title, Subtitle, Search, Quick Cards, Random Jump */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               {/* Main Heading */}
-              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black text-[#f2ebe2] tracking-tight mb-2">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black text-[var(--ink-primary)] tracking-tight mb-2">
                 MindAtlas
               </h1>
 
               {/* Subtitle */}
-              <p className="text-lg text-[#b8ada2] mb-8 font-medium">
-                <strong className="text-[#f2ebe2] font-black">500+</strong> Synthesized mental models, cognitive biases & philosophical foundations.
+              <p className="text-lg text-[var(--ink-secondary)] mb-8 font-medium">
+                <strong className="text-[var(--ink-primary)] font-black">500+</strong> Synthesized mental models, cognitive biases & philosophical foundations.
               </p>
 
               {/* Pill Search Input */}
@@ -119,10 +119,10 @@ export default function MindAtlasHomePage() {
                       : "bg-[#283a2e] hover:bg-[#2f4537] border-[#384f3f]"
                   }`}
                 >
-                  <span className="font-heading font-black text-[#f2ebe2] text-base sm:text-lg leading-snug">
+                  <span className="font-heading font-black text-white text-base sm:text-lg leading-snug">
                     Biases that trick your brain
                   </span>
-                  <ChevronRight className="w-5 h-5 text-[#f2ebe2] shrink-0 ml-2" />
+                  <ChevronRight className="w-5 h-5 text-white shrink-0 ml-2" />
                 </button>
 
                 {/* Lime/Yellow Card */}
@@ -228,13 +228,13 @@ export default function MindAtlasHomePage() {
       {/* BROWSE BY DISCIPLINE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 w-full">
         <div className="flex items-center justify-between mb-5">
-          <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2] tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)] tracking-tight">
             Browse by discipline
           </h2>
           {selectedDiscipline && (
             <button
               onClick={() => setSelectedDiscipline(null)}
-              className="text-xs font-bold text-[#b8ada2] hover:text-[#f2ebe2] underline cursor-pointer"
+              className="text-xs font-bold text-[var(--ink-muted)] hover:text-[var(--ink-primary)] underline cursor-pointer"
             >
               Reset discipline filter
             </button>
@@ -320,7 +320,7 @@ export default function MindAtlasHomePage() {
       {/* RECENTLY SYNTHESIZED SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2] tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)] tracking-tight">
             {selectedDiscipline || selectedType || activeFilter || searchQuery
               ? `Filtered Models (${filteredModels.length})`
               : "Recently synthesized"}
@@ -336,8 +336,8 @@ export default function MindAtlasHomePage() {
 
         {/* 3-Column Responsive Grid */}
         {filteredModels.length === 0 ? (
-          <div className="p-12 text-center rounded-3xl bg-[#272220] border border-[#3d3532]">
-            <p className="font-heading text-xl font-bold text-[#f2ebe2] mb-2">
+          <div className="p-12 text-center rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+            <p className="font-heading text-xl font-bold text-[var(--ink-primary)] mb-2">
               No mental models match your filter
             </p>
             <p className="text-sm text-[#b8ada2] mb-4">

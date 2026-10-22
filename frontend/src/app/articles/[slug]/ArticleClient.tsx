@@ -303,24 +303,24 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
           {/* Headline & Subtitle */}
           <div className="space-y-4 max-w-4xl">
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-[#f2ebe2] tracking-tight leading-[1.15]">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--ink-primary)] tracking-tight leading-[1.15]">
               {article.title}
             </h1>
-            <p className="text-lg sm:text-xl text-[#b8ada2] leading-relaxed font-normal">
+            <p className="text-lg sm:text-xl text-[var(--ink-secondary)] leading-relaxed font-normal">
               {article.subtitle}
             </p>
           </div>
 
           {/* Author, Review & Verification Stamp */}
-          <div className="flex flex-wrap items-center gap-6 text-xs text-[#82756a] pt-2 border-t border-[#3d3532]/60">
+          <div className="flex flex-wrap items-center gap-6 text-xs text-[var(--ink-muted)] pt-2 border-t border-[var(--border-subtle)]/60">
             <div>
-              <span className="text-[#9f9488] font-bold">Synthesized by:</span> {article.author}
+              <span className="text-[var(--ink-secondary)] font-bold">Synthesized by:</span> {article.author}
             </div>
             <div>
-              <span className="text-[#9f9488] font-bold">Published:</span> {article.publishedDate}
+              <span className="text-[var(--ink-secondary)] font-bold">Published:</span> {article.publishedDate}
             </div>
             <div>
-              <span className="text-[#9f9488] font-bold">Last Reviewed:</span> {article.lastReviewedDate}
+              <span className="text-[var(--ink-secondary)] font-bold">Last Reviewed:</span> {article.lastReviewedDate}
             </div>
             <div className="flex items-center gap-1.5 text-emerald-400 font-bold ml-auto">
               <CheckCircle2 className="w-3.5 h-3.5" />
@@ -331,7 +331,7 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
           {/* Hero Media Grid: Vector Illustration + 10x10 Replication Consensus */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch pt-4">
             {/* Vector Illustration */}
-            <div className="md:col-span-7 rounded-3xl overflow-hidden bg-[#f6efe1] border border-[#3d3532] shadow-2xl aspect-[16/10] relative flex items-center justify-center">
+            <div className="md:col-span-7 rounded-3xl overflow-hidden bg-[#f6efe1] border border-[var(--border-subtle)] shadow-2xl aspect-[16/10] relative flex items-center justify-center">
               <Illustration
                 name={article.illustration}
                 className="w-full h-full object-cover"
@@ -339,10 +339,10 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
             </div>
 
             {/* Empirical Replication Box with 10x10 Matrix */}
-            <div className="md:col-span-5 rounded-3xl bg-[#272220] border-2 border-dashed border-[#d5cf66] p-6 sm:p-7 flex flex-col justify-between gap-6">
+            <div className="md:col-span-5 rounded-3xl bg-[var(--bg-surface)] border-2 border-dashed border-[#d5cf66] p-6 sm:p-7 flex flex-col justify-between gap-6">
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#82756a]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--ink-muted)]">
                     Empirical Replication Consensus
                   </span>
                   <span
@@ -374,17 +374,17 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
               </div>
 
               {/* Statistical Rigor Meta Data */}
-              <div className="space-y-1.5 pt-3 border-t border-[#3d3532] text-xs text-[#b8ada2]">
+              <div className="space-y-1.5 pt-3 border-t border-[var(--border-subtle)] text-xs text-[var(--ink-secondary)]">
                 <div className="flex justify-between">
-                  <span className="text-[#82756a]">Sample Size Meta:</span>
-                  <span className="font-mono font-bold text-[#f2ebe2]">{article.empiricalConsensus.sampleSizeMeta}</span>
+                  <span className="text-[var(--ink-muted)]">Sample Size Meta:</span>
+                  <span className="font-mono font-bold text-[var(--ink-primary)]">{article.empiricalConsensus.sampleSizeMeta}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#82756a]">Observed Effect Size:</span>
-                  <span className="font-mono font-bold text-[#f2ebe2]">{article.empiricalConsensus.effectSizeRange}</span>
+                  <span className="text-[var(--ink-muted)]">Observed Effect Size:</span>
+                  <span className="font-mono font-bold text-[var(--ink-primary)]">{article.empiricalConsensus.effectSizeRange}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#82756a]">Open Science Registered:</span>
+                  <span className="text-[var(--ink-muted)]">Open Science Registered:</span>
                   <span className="font-bold text-emerald-400">Verified Protocol</span>
                 </div>
               </div>
@@ -396,7 +396,7 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Sticky Table of Contents Sidebar */}
           <aside className="hidden lg:block lg:col-span-3 sticky top-20 space-y-6">
-            <div className="p-5 rounded-2xl bg-[#272220] border border-[#3d3532]">
+            <div className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#d5cf66] mb-3">
                 <BookOpen className="w-4 h-4" />
                 <span>Treatise Contents</span>
@@ -411,11 +411,11 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
                       onClick={() => scrollToSection(sec.id)}
                       className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-xs font-bold transition-all cursor-pointer ${
                         isActive
-                          ? "bg-[#3d3532] text-[#f2ebe2] shadow-sm"
-                          : "text-[#82756a] hover:text-[#b8ada2] hover:bg-[#1e1a17]"
+                          ? "bg-[var(--border-subtle)] text-[var(--ink-primary)] shadow-sm"
+                          : "text-[var(--ink-muted)] hover:text-[var(--ink-primary)] hover:bg-[var(--bg-deep)]"
                       }`}
                     >
-                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? "text-[#d5cf66]" : "text-[#82756a]"}`} />
+                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? "text-[#d5cf66]" : "text-[var(--ink-muted)]"}`} />
                       <span className="truncate">{sec.label}</span>
                     </button>
                   );
@@ -449,19 +449,19 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
           <article className="lg:col-span-9 space-y-14">
             {/* SECTION 1: Executive Summary & Epistemic Thesis */}
             <section id="overview" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#d5cf66]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#d5cf66]">
                 <Sparkles className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   1. Epistemic Thesis & Executive Summary
                 </h2>
               </div>
 
               {/* Sketched Dashed Callout for Core Epistemic Thesis */}
-              <div className="p-6 rounded-2xl bg-[#272220] border-2 border-dashed border-[#d5cf66] space-y-2">
+              <div className="p-6 rounded-2xl bg-[var(--bg-surface)] border-2 border-dashed border-[#d5cf66] space-y-2">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#d5cf66]">
                   Foundational Principle
                 </span>
-                <p className="text-base sm:text-lg font-bold text-[#f2ebe2] leading-snug">
+                <p className="text-base sm:text-lg font-bold text-[var(--ink-primary)] leading-snug">
                   {article.executiveSummary[0]}
                 </p>
               </div>
@@ -478,23 +478,23 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 2: Learning Objectives & Foundational Prerequisites */}
             <section id="objectives" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#98dcfa]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#98dcfa]">
                 <GraduationCap className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   2. Learning Objectives & Foundational Prerequisites
                 </h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Learning Objectives Box */}
-                <div className="p-6 rounded-3xl bg-[#272220] border border-[#3d3532] space-y-4">
+                <div className="p-6 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-4">
                   <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#98dcfa]">
                     <CheckCircle2 className="w-4 h-4" />
                     <span>Mastery Objectives</span>
                   </div>
                   <ul className="space-y-3">
                     {article.learningObjectives.map((obj, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#b8ada2] leading-relaxed">
+                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#98dcfa] mt-2 shrink-0" />
                         <span>{obj}</span>
                       </li>
@@ -503,16 +503,16 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
                 </div>
 
                 {/* Prerequisite Foundations */}
-                <div className="p-6 rounded-3xl bg-[#272220] border border-[#3d3532] space-y-4">
+                <div className="p-6 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-4">
                   <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#d5cf66]">
                     <Layers className="w-4 h-4" />
                     <span>Prerequisite Conceptual Models</span>
                   </div>
                   <div className="space-y-3">
                     {article.prerequisiteFoundations.map((prereq, idx) => (
-                      <div key={idx} className="p-3 rounded-xl bg-[#1e1a17] border border-[#3d3532] space-y-1">
-                        <span className="font-bold text-xs text-[#f2ebe2] block">{prereq.concept}</span>
-                        <p className="text-xs text-[#82756a] leading-relaxed">{prereq.description}</p>
+                      <div key={idx} className="p-3 rounded-xl bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-1">
+                        <span className="font-bold text-xs text-[var(--ink-primary)] block">{prereq.concept}</span>
+                        <p className="text-xs text-[var(--ink-muted)] leading-relaxed">{prereq.description}</p>
                       </div>
                     ))}
                   </div>
@@ -522,14 +522,14 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 3: Intuitive Foundations & Narrative Case Walkthrough */}
             <section id="narrative" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#ee936b]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#ee936b]">
                 <Lightbulb className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   3. Intuitive Walkthrough: The Phenomenon in the Wild
                 </h2>
               </div>
 
-              <div className="p-6 sm:p-8 rounded-3xl bg-[#272220] border border-[#3d3532] space-y-5">
+              <div className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-5">
                 <div className="text-xs font-bold uppercase tracking-widest text-[#ee936b]">
                   Naturalistic Narrative Analysis
                 </div>
@@ -545,9 +545,9 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 4: Advanced Neurocomputational & Mathematical Foundations */}
             <section id="mechanisms" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#d5bcfe]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#d5bcfe]">
                 <Brain className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   4. Neurocomputational Architecture & Mathematical Modeling
                 </h2>
               </div>
@@ -563,43 +563,43 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
               {/* Mathematical / Formal Model Specification Card */}
               {article.neurocomputationalMechanisms.mathematicalOrFormalModel && (
-                <div className="p-6 sm:p-8 rounded-3xl bg-[#171412] border-2 border-dashed border-[#d5bcfe] space-y-5">
+                <div className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-deep)] border-2 border-dashed border-[#d5bcfe] space-y-5">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold uppercase tracking-wider text-[#d5bcfe]">
                       Formal Mathematical Specification
                     </span>
-                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-[#272220] text-[#b8ada2]">
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-[var(--bg-surface)] text-[var(--ink-secondary)]">
                       Analytical Formulation
                     </span>
                   </div>
 
-                  <h3 className="font-heading text-lg font-black text-[#f2ebe2]">
+                  <h3 className="font-heading text-lg font-black text-[var(--ink-primary)]">
                     {article.neurocomputationalMechanisms.mathematicalOrFormalModel.title}
                   </h3>
 
                   {/* Formula Box */}
-                  <div className="p-5 rounded-2xl bg-[#272220] border border-[#3d3532] overflow-x-auto text-center font-mono text-base sm:text-lg font-bold text-[#d5cf66]">
+                  <div className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] overflow-x-auto text-center font-mono text-base sm:text-lg font-bold text-[#d5cf66]">
                     {article.neurocomputationalMechanisms.mathematicalOrFormalModel.formula}
                   </div>
 
                   {/* Variable Breakdown */}
                   <div className="space-y-2 pt-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#82756a] block">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--ink-muted)] block">
                       Variable Deconstruction:
                     </span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                       {article.neurocomputationalMechanisms.mathematicalOrFormalModel.variableBreakdown.map((vb, idx) => (
-                        <div key={idx} className="p-2.5 rounded-xl bg-[#272220]/60 border border-[#3d3532] flex items-start gap-2">
+                        <div key={idx} className="p-2.5 rounded-xl bg-[var(--bg-surface)]/60 border border-[var(--border-subtle)] flex items-start gap-2">
                           <span className="font-mono font-bold text-[#d5cf66] shrink-0">{vb.variable}:</span>
-                          <span className="text-[#b8ada2]">{vb.meaning}</span>
+                          <span className="text-[var(--ink-secondary)]">{vb.meaning}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Epistemic Implication */}
-                  <p className="text-xs sm:text-sm text-[#b8ada2] italic border-t border-[#3d3532] pt-3">
-                    <strong className="text-[#f2ebe2] not-italic">Theoretical Implication:</strong>{" "}
+                  <p className="text-xs sm:text-sm text-[var(--ink-secondary)] italic border-t border-[var(--border-subtle)] pt-3">
+                    <strong className="text-[var(--ink-primary)] not-italic">Theoretical Implication:</strong>{" "}
                     {article.neurocomputationalMechanisms.mathematicalOrFormalModel.implication}
                   </p>
                 </div>
@@ -607,19 +607,19 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
               {/* Neural Substrates Grid */}
               <div className="pt-4 space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#82756a] block">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--ink-muted)] block">
                   Identified Cortical & Subcortical Substrates
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {article.neurocomputationalMechanisms.neuralSubstrates.map((ns, idx) => (
-                    <div key={idx} className="p-5 rounded-2xl bg-[#272220] border border-[#3d3532] space-y-2">
+                    <div key={idx} className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-2">
                       <div className="text-xs font-bold text-[#d5bcfe] uppercase tracking-wider">
                         {ns.role}
                       </div>
-                      <div className="font-heading text-sm font-bold text-[#f2ebe2]">
+                      <div className="font-heading text-sm font-bold text-[var(--ink-primary)]">
                         {ns.region}
                       </div>
-                      <p className="text-xs text-[#82756a] leading-relaxed">
+                      <p className="text-xs text-[var(--ink-muted)] leading-relaxed">
                         {ns.activationFindings}
                       </p>
                     </div>
@@ -630,9 +630,9 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 5: Historical Genesis & Key Thinkers */}
             <section id="history" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#e6b677]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#e6b677]">
                 <History className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   5. Historical Genesis & The Evolution of Thought
                 </h2>
               </div>
@@ -648,20 +648,20 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
               {/* Thinkers Cards */}
               <div className="pt-4 space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#82756a] block">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--ink-muted)] block">
                   Key Thinkers & Intellectual Lineage
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {article.historicalGenesis.keyThinkers.map((thinker, idx) => (
-                    <div key={idx} className="p-5 rounded-2xl bg-[#272220] border border-[#3d3532] flex flex-col justify-between gap-3">
+                    <div key={idx} className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col justify-between gap-3">
                       <div>
                         <div className="flex items-center justify-between gap-1 mb-1">
-                          <span className="font-heading text-sm font-bold text-[#f2ebe2]">{thinker.name}</span>
-                          <span className="text-[10px] text-[#82756a]">{thinker.era}</span>
+                          <span className="font-heading text-sm font-bold text-[var(--ink-primary)]">{thinker.name}</span>
+                          <span className="text-[10px] text-[var(--ink-muted)]">{thinker.era}</span>
                         </div>
-                        <p className="text-xs text-[#b8ada2] leading-relaxed">{thinker.contribution}</p>
+                        <p className="text-xs text-[var(--ink-secondary)] leading-relaxed">{thinker.contribution}</p>
                       </div>
-                      <div className="text-[11px] font-mono text-[#d5cf66] pt-2 border-t border-[#3d3532]">
+                      <div className="text-[11px] font-mono text-[#d5cf66] pt-2 border-t border-[var(--border-subtle)]">
                         {thinker.seminalWork}
                       </div>
                     </div>
@@ -672,47 +672,47 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 6: Landmark Empirical Experiments & Replications */}
             <section id="experiments" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#7cd0c5]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#7cd0c5]">
                 <FlaskConical className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   6. Landmark Empirical Experiments & Laboratory Validation
                 </h2>
               </div>
 
               <div className="space-y-6">
                 {article.classicExperiments.map((exp, idx) => (
-                  <div key={idx} className="p-6 sm:p-8 rounded-3xl bg-[#272220] border border-[#3d3532] space-y-5">
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#3d3532] pb-3">
+                  <div key={idx} className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-5">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-3">
                       <div>
                         <span className="text-xs font-bold text-[#7cd0c5] uppercase tracking-wider block">
                           Experimental Paradigm {idx + 1} ({exp.year})
                         </span>
-                        <h3 className="font-heading text-lg font-black text-[#f2ebe2]">
+                        <h3 className="font-heading text-lg font-black text-[var(--ink-primary)]">
                           {exp.title}
                         </h3>
                       </div>
-                      <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#1e1a17] text-[#b8ada2] border border-[#3d3532]">
+                      <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[var(--bg-page)] text-[var(--ink-secondary)] border border-[var(--border-subtle)]">
                         {exp.investigators}
                       </span>
                     </div>
 
-                    <div className="space-y-3 text-xs sm:text-sm text-[#b8ada2] leading-relaxed">
+                    <div className="space-y-3 text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
                       <div>
-                        <strong className="text-[#f2ebe2]">Methodology & Setup:</strong> {exp.methodology}
+                        <strong className="text-[var(--ink-primary)]">Methodology & Setup:</strong> {exp.methodology}
                       </div>
-                      <div className="p-4 rounded-xl bg-[#1e1a17] border border-[#3d3532]">
+                      <div className="p-4 rounded-xl bg-[var(--bg-page)] border border-[var(--border-subtle)]">
                         <strong className="text-[#7cd0c5] block mb-1">Sample & Conditions:</strong>
                         {exp.sampleAndConditions}
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <strong className="text-xs font-bold uppercase tracking-wider text-[#82756a] block">
+                      <strong className="text-xs font-bold uppercase tracking-wider text-[var(--ink-muted)] block">
                         Landmark Quantitative Findings:
                       </strong>
                       <ul className="space-y-2">
                         {exp.keyFindings.map((finding, fIdx) => (
-                          <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#b8ada2] leading-relaxed">
+                          <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#7cd0c5] mt-2 shrink-0" />
                             <span>{finding}</span>
                           </li>
@@ -720,10 +720,10 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
                       </ul>
                     </div>
 
-                    <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#3d3532] text-xs">
+                    <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[var(--border-subtle)] text-xs">
                       <div>
-                        <span className="text-[#82756a]">Statistical Effect Size:</span>{" "}
-                        <span className="font-mono font-bold text-[#f2ebe2]">{exp.effectSize}</span>
+                        <span className="text-[var(--ink-muted)]">Statistical Effect Size:</span>{" "}
+                        <span className="font-mono font-bold text-[var(--ink-primary)]">{exp.effectSize}</span>
                       </div>
                       <div className="text-[#a0d9a1] font-bold">
                         Replication: {exp.replicationNotes}
@@ -738,39 +738,39 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
             <section id="cases" className="space-y-6 scroll-mt-24">
               <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#fe9ea6]">
                 <FileText className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   7. High-Stakes Cross-Domain Case Studies
                 </h2>
               </div>
 
               <div className="grid grid-cols-1 gap-6">
                 {article.concreteCaseStudies.map((cs, idx) => (
-                  <div key={idx} className="p-6 sm:p-8 rounded-3xl bg-[#272220] border border-[#3d3532] space-y-4">
-                    <div className="flex items-center justify-between gap-2 border-b border-[#3d3532] pb-3">
+                  <div key={idx} className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-4">
+                    <div className="flex items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-3">
                       <div>
                         <span className="text-xs font-bold text-[#fe9ea6] uppercase tracking-wider block">
                           Domain: {cs.domain}
                         </span>
-                        <h3 className="font-heading text-lg font-black text-[#f2ebe2]">
+                        <h3 className="font-heading text-lg font-black text-[var(--ink-primary)]">
                           {cs.title}
                         </h3>
                       </div>
                     </div>
 
-                    <div className="space-y-3 text-xs sm:text-sm text-[#b8ada2] leading-relaxed">
+                    <div className="space-y-3 text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
                       <p>
-                        <strong className="text-[#f2ebe2]">Operational Context:</strong> {cs.background}
+                        <strong className="text-[var(--ink-primary)]">Operational Context:</strong> {cs.background}
                       </p>
                       <p>
                         <strong className="text-[#fe9ea6]">Cognitive Failure Mode:</strong> {cs.biasManifestation}
                       </p>
                       <p>
-                        <strong className="text-[#f2ebe2]">Consequences & Cost:</strong> {cs.consequences}
+                        <strong className="text-[var(--ink-primary)]">Consequences & Cost:</strong> {cs.consequences}
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-2xl bg-[#1e1a17] border border-[#3d3532] text-xs text-[#d5cf66] leading-relaxed">
-                      <strong className="block text-[#f2ebe2] mb-1">Institutional Lesson Learned:</strong>
+                    <div className="p-4 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] text-xs text-[#d5cf66] leading-relaxed">
+                      <strong className="block text-[var(--ink-primary)] mb-1">Institutional Lesson Learned:</strong>
                       {cs.lessonsLearned}
                     </div>
                   </div>
@@ -780,35 +780,35 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 8: Common Misconceptions Debunked */}
             <section id="misconceptions" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#5cb87a]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#5cb87a]">
                 <AlertTriangle className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   8. Common Misconceptions Debunked (Myth vs Reality)
                 </h2>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {article.commonMisconceptions.map((item, idx) => (
-                  <div key={idx} className="p-6 rounded-3xl bg-[#283a2e] border border-[#384f3f] space-y-4">
+                  <div key={idx} className="p-6 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-4">
                     <div className="space-y-1">
-                      <span className="text-xs font-bold text-[#fe9ea6] uppercase tracking-wider block">
+                      <span className="text-xs font-bold text-rose-500 uppercase tracking-wider block">
                         Popular Misconception:
                       </span>
-                      <h4 className="font-heading text-sm font-bold text-[#f2ebe2]">
+                      <h4 className="font-heading text-sm font-bold text-[var(--ink-primary)]">
                         &ldquo;{item.misconception}&rdquo;
                       </h4>
                     </div>
 
-                    <div className="space-y-1 pt-2 border-t border-[#384f3f]">
-                      <span className="text-xs font-bold text-[#a0d9a1] uppercase tracking-wider block">
+                    <div className="space-y-1 pt-2 border-t border-[var(--border-subtle)]">
+                      <span className="text-xs font-bold text-emerald-500 uppercase tracking-wider block">
                         Empirical Reality:
                       </span>
-                      <p className="text-xs text-[#b8ada2] leading-relaxed">
+                      <p className="text-xs text-[var(--ink-secondary)] leading-relaxed">
                         {item.reality}
                       </p>
                     </div>
 
-                    <div className="text-[11px] font-mono text-[#82756a] pt-1">
+                    <div className="text-[11px] font-mono text-[var(--ink-muted)] pt-1">
                       Evidence: {item.empiricalEvidence}
                     </div>
                   </div>
@@ -818,36 +818,36 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 9: Scholarly Critiques & Counterarguments */}
             <section id="critiques" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#e0da7a]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#e0da7a]">
                 <Scale className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   9. Scholarly Critiques & Counterarguments
                 </h2>
               </div>
 
               <div className="space-y-6">
                 {article.critiquesAndCounterarguments.map((critique, idx) => (
-                  <div key={idx} className="p-6 sm:p-8 rounded-3xl bg-[#272220] border border-[#3d3532] space-y-4">
-                    <div className="flex items-center justify-between border-b border-[#3d3532] pb-3">
+                  <div key={idx} className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-4">
+                    <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
                       <div>
                         <span className="text-xs font-bold text-[#e0da7a] uppercase tracking-wider block">
                           Alternative Theoretical Paradigm
                         </span>
-                        <h3 className="font-heading text-base font-black text-[#f2ebe2]">
+                        <h3 className="font-heading text-base font-black text-[var(--ink-primary)]">
                           {critique.perspective}
                         </h3>
                       </div>
-                      <span className="text-xs text-[#82756a] font-bold">
+                      <span className="text-xs text-[var(--ink-muted)] font-bold">
                         {critique.proponent}
                       </span>
                     </div>
 
-                    <div className="space-y-3 text-xs sm:text-sm text-[#b8ada2] leading-relaxed">
+                    <div className="space-y-3 text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
                       <p>
                         <strong className="text-[#e0da7a]">Core Academic Objection:</strong> {critique.coreArgument}
                       </p>
-                      <p className="p-4 rounded-2xl bg-[#1e1a17] border border-[#3d3532]">
-                        <strong className="text-[#f2ebe2] block mb-1">Response & Modern Synthesis:</strong>
+                      <p className="p-4 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)]">
+                        <strong className="text-[var(--ink-primary)] block mb-1">Response & Modern Synthesis:</strong>
                         {critique.responseAndSynthesis}
                       </p>
                     </div>
@@ -858,38 +858,38 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 10: Actionable Institutional Debiasing Protocols */}
             <section id="protocols" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#d5cf66]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#d5cf66]">
                 <ShieldAlert className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   10. Actionable Institutional Protocols & Debiasing Scaffolds
                 </h2>
               </div>
 
               <div className="space-y-6">
                 {article.debiasingProtocols.map((proto) => (
-                  <div key={proto.protocolNumber} className="p-6 sm:p-8 rounded-3xl bg-[#272220] border border-[#3d3532] space-y-5">
-                    <div className="flex items-center justify-between border-b border-[#3d3532] pb-3">
+                  <div key={proto.protocolNumber} className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-5">
+                    <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
                       <div>
                         <span className="text-xs font-bold text-[#d5cf66] uppercase tracking-wider block">
                           Protocol {proto.protocolNumber}
                         </span>
-                        <h3 className="font-heading text-lg font-black text-[#f2ebe2]">
+                        <h3 className="font-heading text-lg font-black text-[var(--ink-primary)]">
                           {proto.name}
                         </h3>
                       </div>
-                      <span className="text-xs text-[#82756a] font-mono px-3 py-1 rounded-full bg-[#1e1a17]">
+                      <span className="text-xs text-[var(--ink-muted)] font-mono px-3 py-1 rounded-full bg-[var(--bg-page)]">
                         {proto.targetContext}
                       </span>
                     </div>
 
                     <div className="space-y-3">
-                      <strong className="text-xs font-bold uppercase tracking-wider text-[#82756a] block">
+                      <strong className="text-xs font-bold uppercase tracking-wider text-[var(--ink-muted)] block">
                         Step-by-Step Procedural Execution:
                       </strong>
                       <ol className="space-y-2.5">
                         {proto.stepByStepProcedure.map((step, sIdx) => (
-                          <li key={sIdx} className="flex items-start gap-3 text-xs sm:text-sm text-[#b8ada2] leading-relaxed">
-                            <span className="w-5 h-5 rounded-full bg-[#3d3532] text-[#d5cf66] font-mono font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                          <li key={sIdx} className="flex items-start gap-3 text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
+                            <span className="w-5 h-5 rounded-full bg-[var(--border-subtle)] text-[#d5cf66] font-mono font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                               {sIdx + 1}
                             </span>
                             <span>{step}</span>
@@ -898,7 +898,7 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
                       </ol>
                     </div>
 
-                    <div className="p-3.5 rounded-xl bg-[#1e1a17] border border-[#3d3532] text-xs text-[#fe9ea6]">
+                    <div className="p-3.5 rounded-xl bg-[var(--bg-page)] border border-[var(--border-subtle)] text-xs text-[#fe9ea6]">
                       <strong>Common Failure Mode:</strong> {proto.commonFailureModes}
                     </div>
                   </div>
@@ -908,22 +908,22 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 11: Claim-Level Traceable Citations */}
             <section id="citations" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#97b5f6]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#97b5f6]">
                 <BookOpen className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   11. Claim-Level Traceable Citations & Supporting Evidence
                 </h2>
               </div>
 
               <div className="space-y-4">
                 {article.claimCitations.map((citation) => (
-                  <div key={citation.id} className="p-5 sm:p-6 rounded-2xl bg-[#171412] border border-[#3d3532] space-y-3">
+                  <div key={citation.id} className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-deep)] border border-[var(--border-subtle)] space-y-3">
                     <div className="flex items-start justify-between gap-4">
                       <div className="space-y-1">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-[#97b5f6]">
                           Claim Verification (DOI: {citation.doi})
                         </span>
-                        <p className="text-sm font-bold text-[#f2ebe2]">
+                        <p className="text-sm font-bold text-[var(--ink-primary)]">
                           &ldquo;{citation.claimText}&rdquo;
                         </p>
                       </div>
@@ -931,7 +931,7 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
                         href={`https://doi.org/${citation.doi}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold text-[#97b5f6] hover:bg-[#272220] transition-colors shrink-0"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold text-[#97b5f6] hover:bg-[var(--bg-surface)] transition-colors shrink-0"
                       >
                         <span>Crossref</span>
                         <ExternalLink className="w-3 h-3" />
@@ -939,11 +939,11 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
                     </div>
 
                     {/* Exact Verbatim Supporting Quote */}
-                    <blockquote className="p-3.5 rounded-xl bg-[#272220]/80 border-l-2 border-[#97b5f6] text-xs text-[#b8ada2] italic leading-relaxed">
+                    <blockquote className="p-3.5 rounded-xl bg-[var(--bg-surface)]/80 border-l-2 border-[#97b5f6] text-xs text-[var(--ink-secondary)] italic leading-relaxed">
                       &ldquo;{citation.supportingQuote}&rdquo;
                     </blockquote>
 
-                    <div className="text-[11px] font-mono text-[#82756a] flex flex-wrap gap-4 pt-1">
+                    <div className="text-[11px] font-mono text-[var(--ink-muted)] flex flex-wrap gap-4 pt-1">
                       <span>Source: {citation.sourceAuthor} ({citation.sourceYear})</span>
                       <span>Publication: {citation.publisherOrJournal}</span>
                       <span>Location: {citation.pageOrSection}</span>
@@ -955,16 +955,16 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 12: Active Recall & Conceptual Self-Test */}
             <section id="active-recall" className="space-y-8 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#d5cf66]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#d5cf66]">
                 <RotateCcw className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   12. Active Recall & Conceptual Diagnostic Check
                 </h2>
               </div>
 
               {/* Spaced Repetition Flashcards Deck */}
               <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#82756a] block">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--ink-muted)] block">
                   Active Recall Flashcards (Click to flip)
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -974,17 +974,17 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
                       <button
                         key={fc.id}
                         onClick={() => toggleCard(idx)}
-                        className="p-6 rounded-3xl bg-[#272220] border border-[#3d3532] hover:border-[#574d48] text-left transition-all flex flex-col justify-between min-h-[170px] cursor-pointer"
+                        className="p-6 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-left transition-all flex flex-col justify-between min-h-[170px] cursor-pointer"
                       >
                         <div>
                           <span className="text-[10px] font-bold uppercase tracking-widest text-[#d5cf66] block mb-2">
                             {isFlipped ? "Empirical Answer" : "Active Recall Question"}
                           </span>
-                          <p className="font-heading text-sm sm:text-base font-bold text-[#f2ebe2]">
+                          <p className="font-heading text-sm sm:text-base font-bold text-[var(--ink-primary)]">
                             {isFlipped ? fc.back : fc.front}
                           </p>
                         </div>
-                        <div className="flex items-center gap-1.5 text-xs text-[#82756a] mt-4">
+                        <div className="flex items-center gap-1.5 text-xs text-[var(--ink-muted)] mt-4">
                           <RotateCcw className="w-3.5 h-3.5" />
                           <span>{isFlipped ? "Click to view prompt" : "Click to reveal answer"}</span>
                         </div>
@@ -995,12 +995,12 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
               </div>
 
               {/* Conceptual Multiple-Choice Self-Test */}
-              <div className="p-6 sm:p-8 rounded-3xl bg-[#272220] border border-[#3d3532] space-y-6">
+              <div className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-6">
                 <div className="space-y-1">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#d5cf66]">
                     Self-Assessment Check
                   </span>
-                  <h3 className="font-heading text-xl font-black text-[#f2ebe2]">
+                  <h3 className="font-heading text-xl font-black text-[var(--ink-primary)]">
                     Conceptual Comprehension Diagnostic
                   </h3>
                 </div>
@@ -1012,21 +1012,21 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
                     const isCorrect = selected === q.correctIndex;
 
                     return (
-                      <div key={q.id} className="p-5 rounded-2xl bg-[#1e1a17] border border-[#3d3532] space-y-4">
-                        <div className="font-heading text-sm sm:text-base font-bold text-[#f2ebe2]">
+                      <div key={q.id} className="p-5 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-4">
+                        <div className="font-heading text-sm sm:text-base font-bold text-[var(--ink-primary)]">
                           {qIdx + 1}. {q.question}
                         </div>
 
                         <div className="space-y-2">
                           {q.options.map((option, optIdx) => {
-                            let optionStyle = "border-[#3d3532] bg-[#272220] text-[#b8ada2] hover:bg-[#322c2a]";
+                            let optionStyle = "border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--ink-secondary)] hover:bg-[var(--bg-surface-raised)]";
                             if (hasSelected) {
                               if (optIdx === q.correctIndex) {
                                 optionStyle = "border-emerald-500 bg-emerald-950/40 text-emerald-200 font-bold";
                               } else if (optIdx === selected) {
                                 optionStyle = "border-rose-500 bg-rose-950/40 text-rose-200";
                               } else {
-                                optionStyle = "border-[#3d3532] bg-[#272220]/40 text-[#82756a]";
+                                optionStyle = "border-[var(--border-subtle)] bg-[var(--bg-surface)]/40 text-[var(--ink-muted)]";
                               }
                             }
 
@@ -1039,7 +1039,7 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
                               >
                                 <span>{option}</span>
                                 {hasSelected && optIdx === q.correctIndex && (
-                                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                                   <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                                 )}
                               </button>
                             );
@@ -1065,27 +1065,27 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
 
             {/* SECTION 13: Annotated Academic Further Reading */}
             <section id="further-reading" className="space-y-6 scroll-mt-24">
-              <div className="flex items-center gap-3 border-b border-[#3d3532] pb-3 text-[#f095d2]">
+              <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-3 text-[#f095d2]">
                 <Layers className="w-6 h-6" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2]">
+                <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">
                   13. Annotated Academic Further Reading
                 </h2>
               </div>
 
               <div className="grid grid-cols-1 gap-4">
                 {article.furtherReading.map((item, idx) => (
-                  <div key={idx} className="p-5 rounded-2xl bg-[#272220] border border-[#3d3532] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div key={idx} className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-[#f2ebe2]">{item.title}</span>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#1e1a17] text-[#f095d2] border border-[#3d3532]">
+                        <span className="text-xs font-bold text-[var(--ink-primary)]">{item.title}</span>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-page)] text-[#f095d2] border border-[var(--border-subtle)]">
                           {item.type}
                         </span>
                       </div>
-                      <p className="text-xs text-[#82756a]">
+                      <p className="text-xs text-[var(--ink-muted)]">
                         By {item.author} ({item.year})
                       </p>
-                      <p className="text-xs text-[#b8ada2] pt-1">
+                      <p className="text-xs text-[var(--ink-secondary)] pt-1">
                         {item.annotation}
                       </p>
                     </div>
@@ -1095,7 +1095,7 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
                         href={item.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-[#3d3532] bg-[#1e1a17] text-[#d5cf66] hover:bg-[#3d3532] transition-colors shrink-0 self-start sm:self-auto"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-[var(--border-subtle)] bg-[var(--bg-page)] text-[#d5cf66] hover:bg-[var(--bg-surface)] transition-colors shrink-0 self-start sm:self-auto"
                       >
                         <span>Access Resource</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -1107,8 +1107,8 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
             </section>
 
             {/* Related Mental Models Grid */}
-            <div className="pt-12 border-t border-[#3d3532] space-y-6">
-              <h3 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2] tracking-tight">
+            <div className="pt-12 border-t border-[var(--border-subtle)] space-y-6">
+              <h3 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)] tracking-tight">
                 Related Synthesized Mental Models
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

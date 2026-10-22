@@ -38,29 +38,29 @@ function LibraryCatalog() {
   }, [searchQuery, selectedDiscipline, selectedType]);
 
   return (
-    <div className="min-h-screen bg-[#1e1a17] text-[#f2ebe2]">
+    <div className="min-h-screen bg-[var(--bg-page)] text-[var(--ink-primary)]">
       {/* Top Banner */}
-      <div className="bg-dot-matrix py-12 border-b border-[#3d3532]">
+      <div className="bg-dot-matrix py-12 border-b border-[var(--border-subtle)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-xs font-black uppercase tracking-widest text-[#d5cf66] mb-2">
+          <div className="text-xs font-black uppercase tracking-widest text-[var(--accent-gold)] mb-2">
             The Knowledge Library
           </div>
-          <h1 className="font-heading text-4xl sm:text-5xl font-black text-[#f2ebe2] tracking-tight mb-3">
+          <h1 className="font-heading text-4xl sm:text-5xl font-black text-[var(--ink-primary)] tracking-tight mb-3">
             Synthesized Mental Models & Biases
           </h1>
-          <p className="text-base sm:text-lg text-[#b8ada2] max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-[var(--ink-secondary)] max-w-2xl leading-relaxed">
             Rigorous, peer-reviewed syntheses of the most influential frameworks in cognitive psychology, decision science, epistemology, and behavioral economics.
           </p>
 
           {/* Search Box */}
           <div className="relative max-w-xl mt-6">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#82756a]" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--ink-muted)]" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder='Search by keyword, e.g. "heuristics", "dissonance", "popper"...'
-              className="w-full pl-12 pr-4 py-3.5 rounded-full bg-[#272220] border border-[#3d3532] text-[#f2ebe2] placeholder-[#82756a] text-sm focus:outline-none focus:border-[#d5cf66]"
+              className="w-full pl-12 pr-4 py-3.5 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--ink-primary)] placeholder-[var(--ink-muted)] text-sm focus:outline-none focus:border-[#d5cf66]"
             />
           </div>
         </div>
@@ -70,9 +70,9 @@ function LibraryCatalog() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Discipline Filters */}
-        <div className="flex flex-col gap-6 mb-10 pb-8 border-b border-[#3d3532]">
+        <div className="flex flex-col gap-6 mb-10 pb-8 border-b border-[var(--border-subtle)]">
           <div>
-            <div className="text-xs font-black uppercase tracking-wider text-[#82756a] mb-2.5">
+            <div className="text-xs font-black uppercase tracking-wider text-[var(--ink-muted)] mb-2.5">
               Filter by Discipline
             </div>
             <div className="flex flex-wrap gap-2">
@@ -80,8 +80,8 @@ function LibraryCatalog() {
                 onClick={() => setSelectedDiscipline(null)}
                 className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   !selectedDiscipline
-                    ? "bg-[#f2ebe2] text-[#1e1a17]"
-                    : "bg-[#272220] text-[#b8ada2] border border-[#3d3532] hover:text-[#f2ebe2]"
+                    ? "bg-[var(--ink-primary)] text-[var(--bg-page)]"
+                    : "bg-[var(--pill-unselected-bg)] text-[var(--ink-secondary)] border border-[var(--border-subtle)] hover:text-[var(--ink-primary)]"
                 }`}
               >
                 All Disciplines
@@ -109,7 +109,7 @@ function LibraryCatalog() {
 
           {/* Concept Type Filters */}
           <div>
-            <div className="text-xs font-black uppercase tracking-wider text-[#82756a] mb-2.5">
+            <div className="text-xs font-black uppercase tracking-wider text-[var(--ink-muted)] mb-2.5">
               Filter by Concept Type
             </div>
             <div className="flex flex-wrap gap-2">
@@ -117,8 +117,8 @@ function LibraryCatalog() {
                 onClick={() => setSelectedType(null)}
                 className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   !selectedType
-                    ? "bg-[#f2ebe2] text-[#1e1a17]"
-                    : "bg-[#272220] text-[#b8ada2] border border-[#3d3532] hover:text-[#f2ebe2]"
+                    ? "bg-[var(--ink-primary)] text-[var(--bg-page)]"
+                    : "bg-[var(--pill-unselected-bg)] text-[var(--ink-secondary)] border border-[var(--border-subtle)] hover:text-[var(--ink-primary)]"
                 }`}
               >
                 All Types
@@ -132,7 +132,7 @@ function LibraryCatalog() {
                     className={`px-3 py-1.5 rounded-full text-xs font-bold border transition-all cursor-pointer ${
                       isSelected
                         ? "bg-[#d5cf66] text-[#232402] border-[#d5cf66]"
-                        : "bg-[#272220] text-[#b8ada2] border-[#3d3532] hover:text-[#f2ebe2]"
+                        : "bg-[var(--pill-unselected-bg)] text-[var(--ink-secondary)] border-[var(--border-subtle)] hover:text-[var(--ink-primary)]"
                     }`}
                   >
                     {t.label} ({t.count})
@@ -145,8 +145,8 @@ function LibraryCatalog() {
 
         {/* Counter Row */}
         <div className="flex items-center justify-between mb-8">
-          <div className="text-sm font-bold text-[#b8ada2]">
-            Showing <span className="text-[#f2ebe2] font-black">{filtered.length}</span> mental models & syntheses
+          <div className="text-sm font-bold text-[var(--ink-secondary)]">
+            Showing <span className="text-[var(--ink-primary)] font-black">{filtered.length}</span> mental models & syntheses
           </div>
           {(selectedDiscipline || selectedType || searchQuery) && (
             <button

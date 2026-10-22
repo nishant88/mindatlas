@@ -66,7 +66,9 @@ export default function MentalModelCard({ model }: MentalModelCardProps) {
 
           {/* Title */}
           <h3 className="font-heading text-xl sm:text-2xl font-black text-[var(--ink-primary)] tracking-tight mb-2 group-hover:underline decoration-2 underline-offset-2">
-            <Link href={`/articles/${model.slug}`}>{model.title}</Link>
+            <Link href={`/articles/${model.slug}`} className="text-[var(--ink-primary)] hover:text-[var(--ink-primary)]">
+              {model.title}
+            </Link>
           </h3>
 
           {/* Summary */}

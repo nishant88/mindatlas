@@ -88,32 +88,32 @@ function StudyPlannerContent() {
   const isAnswerCorrect = selectedAnswer === currentPlan.quiz.correctIndex;
 
   return (
-    <div className="min-h-screen bg-[#1e1a17] text-[#f2ebe2]">
+    <div className="min-h-screen bg-[var(--bg-page)] text-[var(--ink-primary)]">
       {/* Top Banner */}
-      <div className="bg-dot-matrix py-12 border-b border-[#3d3532]">
+      <div className="bg-dot-matrix py-12 border-b border-[var(--border-subtle)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <div className="text-xs font-black uppercase tracking-widest text-[#d5cf66] mb-2">
+              <div className="text-xs font-black uppercase tracking-widest text-[var(--accent-gold)] mb-2">
                 Structured Cognitive Curriculum
               </div>
-              <h1 className="font-heading text-4xl sm:text-5xl font-black text-[#f2ebe2] tracking-tight mb-3">
+              <h1 className="font-heading text-4xl sm:text-5xl font-black text-[var(--ink-primary)] tracking-tight mb-3">
                 12-Week Epistemic Mastery Path
               </h1>
-              <p className="text-base sm:text-lg text-[#b8ada2] max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-[var(--ink-secondary)] max-w-2xl leading-relaxed">
                 Spaced repetition schedules, day-by-day reading assignments, guided inquiry questions, and active recall self-tests from foundational heuristics to formal epistemology.
               </p>
             </div>
 
             {/* View Mode Switcher + Global Progress */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-              <div className="p-1 rounded-full bg-[#272220] border border-[#3d3532] flex items-center">
+              <div className="p-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center">
                 <button
                   onClick={() => setViewMode("daily")}
                   className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                     viewMode === "daily"
                       ? "bg-[#d5cf66] text-[#232402] shadow-sm"
-                      : "text-[#b8ada2] hover:text-[#f2ebe2]"
+                      : "text-[var(--ink-secondary)] hover:text-[var(--ink-primary)]"
                   }`}
                 >
                   <Calendar className="w-3.5 h-3.5" />
@@ -124,7 +124,7 @@ function StudyPlannerContent() {
                   className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                     viewMode === "roadmap"
                       ? "bg-[#d5cf66] text-[#232402] shadow-sm"
-                      : "text-[#b8ada2] hover:text-[#f2ebe2]"
+                      : "text-[var(--ink-secondary)] hover:text-[var(--ink-primary)]"
                   }`}
                 >
                   <Layers className="w-3.5 h-3.5" />
@@ -133,7 +133,7 @@ function StudyPlannerContent() {
               </div>
 
               {/* Overall Progress Pill */}
-              <div className="px-4 py-2 rounded-full bg-[#272220] border border-[#3d3532] text-xs font-bold text-[#b8ada2] flex items-center gap-2">
+              <div className="px-4 py-2 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-bold text-[var(--ink-secondary)] flex items-center gap-2">
                 <span className="text-[#d5cf66] font-black">{overallProgressPercent}%</span>
                 <span>Curriculum Mastered</span>
               </div>
@@ -159,7 +159,7 @@ function StudyPlannerContent() {
                   className={`px-4 py-2.5 rounded-full text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 ${
                     isSelected
                       ? "bg-[#d5cf66] text-[#232402] scale-105 shadow-lg ring-2 ring-[#d5cf66]/50"
-                      : "bg-[#272220] border border-[#3d3532] text-[#b8ada2] hover:text-[#f2ebe2] hover:border-[#574d48]"
+                      : "bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--ink-secondary)] hover:text-[var(--ink-primary)] hover:border-[var(--border-strong)]"
                   }`}
                 >
                   {hasCompletedWeek ? (
@@ -204,7 +204,7 @@ function StudyPlannerContent() {
                 </div>
 
                 <div>
-                  <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2] tracking-tight mb-1">
+                  <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)] tracking-tight mb-1">
                     {currentPlan.title}
                   </h2>
                   <p className="text-sm font-bold text-[#d5cf66]/90">
@@ -228,11 +228,11 @@ function StudyPlannerContent() {
               {/* Day-by-Day Detailed Schedule */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-heading text-xl font-black text-[#f2ebe2] flex items-center gap-2">
+                  <h3 className="font-heading text-xl font-black text-[var(--ink-primary)] flex items-center gap-2">
                     <ListTodo className="w-5 h-5 text-[#d5cf66]" />
                     <span>Day-by-Day Learning Schedule (Week {currentPlan.week})</span>
                   </h3>
-                  <span className="text-xs text-[#82756a]">
+                  <span className="text-xs text-[var(--ink-muted)]">
                     Click any day card to expand guided inquiries
                   </span>
                 </div>
@@ -248,8 +248,8 @@ function StudyPlannerContent() {
                         key={session.day}
                         className={`rounded-3xl border transition-all ${
                           isDone
-                            ? "bg-[#272220]/80 border-emerald-500/30"
-                            : "bg-[#272220] border-[#3d3532] hover:border-[#574d48]"
+                            ? "bg-[var(--bg-surface)]/80 border-emerald-500/30"
+                            : "bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
                         }`}
                       >
                         {/* Day Card Header */}
@@ -260,7 +260,7 @@ function StudyPlannerContent() {
                           <div className="space-y-2 flex-1">
                             <div className="flex flex-wrap items-center gap-2.5">
                               {/* Day Label Badge */}
-                              <span className="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-[#1e1a17] text-[#d5cf66] border border-[#3d3532]">
+                              <span className="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-[var(--bg-page)] text-[#d5cf66] border border-[var(--border-subtle)]">
                                 {session.dayLabel}
                               </span>
 
@@ -276,7 +276,7 @@ function StudyPlannerContent() {
                               </span>
 
                               {/* Duration */}
-                              <span className="text-xs text-[#82756a] flex items-center gap-1 font-medium">
+                              <span className="text-xs text-[var(--ink-muted)] flex items-center gap-1 font-medium">
                                 <Clock className="w-3.5 h-3.5" /> {session.durationMins} mins
                               </span>
 
@@ -287,11 +287,11 @@ function StudyPlannerContent() {
                               )}
                             </div>
 
-                            <h4 className="font-heading text-lg sm:text-xl font-black text-[#f2ebe2] hover:text-[#d5cf66] transition-colors">
+                            <h4 className="font-heading text-lg sm:text-xl font-black text-[var(--ink-primary)] hover:text-[#d5cf66] transition-colors">
                               {session.sessionTitle}
                             </h4>
 
-                            <p className="text-xs sm:text-sm text-[#b8ada2] leading-relaxed">
+                            <p className="text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
                               {session.objective}
                             </p>
                           </div>
@@ -301,7 +301,7 @@ function StudyPlannerContent() {
                             <Link
                               href={`/articles/${session.articleSlug}`}
                               onClick={(e) => e.stopPropagation()}
-                              className="px-4 py-2 rounded-full bg-[#1e1a17] hover:bg-[#3d3532] border border-[#3d3532] hover:border-[#d5cf66]/50 text-xs font-bold text-[#d5cf66] flex items-center gap-1.5 transition-all shadow-sm"
+                              className="px-4 py-2 rounded-full bg-[var(--bg-page)] hover:bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] hover:border-[#d5cf66]/50 text-xs font-bold text-[#d5cf66] flex items-center gap-1.5 transition-all shadow-sm"
                             >
                               <BookOpen className="w-3.5 h-3.5" />
                               <span>Read Treatise</span>
@@ -322,7 +322,7 @@ function StudyPlannerContent() {
                               {isDone ? "✓ Completed" : "Mark Day Complete"}
                             </button>
 
-                            <div className="text-[#82756a] p-1">
+                            <div className="text-[var(--ink-muted)] p-1">
                               {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                             </div>
                           </div>
@@ -330,20 +330,20 @@ function StudyPlannerContent() {
 
                         {/* Expandable Day Details */}
                         {isExpanded && (
-                          <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-[#3d3532]/60 space-y-5 animate-in fade-in duration-150">
+                          <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-[var(--border-subtle)]/60 space-y-5 animate-in fade-in duration-150">
                             {/* Assigned Reading Link Callout */}
-                            <div className="p-4 rounded-2xl bg-[#1e1a17] border border-[#3d3532] flex items-center justify-between gap-4">
+                            <div className="p-4 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] flex items-center justify-between gap-4">
                               <div>
-                                <span className="text-[10px] font-black uppercase tracking-wider text-[#82756a] block mb-0.5">
+                                <span className="text-[10px] font-black uppercase tracking-wider text-[var(--ink-muted)] block mb-0.5">
                                   Prescribed Scholarly Treatise
                                 </span>
-                                <span className="font-heading font-black text-sm text-[#f2ebe2]">
+                                <span className="font-heading font-black text-sm text-[var(--ink-primary)]">
                                   {session.articleTitle}
                                 </span>
                               </div>
                               <Link
                                 href={`/articles/${session.articleSlug}`}
-                                className="px-3.5 py-1.5 rounded-full bg-[#272220] hover:bg-[#3d3532] text-xs font-bold text-[#d5cf66] border border-[#3d3532] shrink-0"
+                                className="px-3.5 py-1.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-raised)] text-xs font-bold text-[#d5cf66] border border-[var(--border-subtle)] shrink-0"
                               >
                                 Open Reader &rarr;
                               </Link>
@@ -355,7 +355,7 @@ function StudyPlannerContent() {
                                 <HelpCircle className="w-3.5 h-3.5" />
                                 <span>Guided Inquiry Questions</span>
                               </h5>
-                              <ul className="space-y-1.5 text-xs text-[#b8ada2] leading-relaxed">
+                              <ul className="space-y-1.5 text-xs text-[var(--ink-secondary)] leading-relaxed">
                                 {session.guidedQuestions.map((q, qIdx) => (
                                   <li key={qIdx} className="flex items-start gap-2">
                                     <span className="text-[#d5cf66] font-bold">•</span>
@@ -366,21 +366,21 @@ function StudyPlannerContent() {
                             </div>
 
                             {/* Practical Exercise & Real-World Observation */}
-                            <div className="p-4 rounded-2xl bg-[#1e1a17] border border-[#3d3532] space-y-1.5">
+                            <div className="p-4 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-1.5">
                               <span className="text-[10px] font-black uppercase tracking-wider text-[#7cd0c5]">
                                 Practical Observation Drill
                               </span>
-                              <p className="text-xs text-[#f2ebe2] leading-relaxed">
+                              <p className="text-xs text-[var(--ink-primary)] leading-relaxed">
                                 {session.practicalExercise}
                               </p>
                             </div>
 
                             {/* Personal Reflection Prompt */}
-                            <div className="p-4 rounded-2xl bg-[#1e1a17] border border-[#3d3532] space-y-1.5">
+                            <div className="p-4 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-1.5">
                               <span className="text-[10px] font-black uppercase tracking-wider text-[#d5bcfe]">
                                 Socratic Reflection Prompt
                               </span>
-                              <p className="text-xs text-[#f2ebe2] leading-relaxed italic">
+                              <p className="text-xs text-[var(--ink-primary)] leading-relaxed italic">
                                 &ldquo;{session.reflectionPrompt}&rdquo;
                               </p>
                             </div>
@@ -399,13 +399,13 @@ function StudyPlannerContent() {
                                     <div
                                       key={tIdx}
                                       onClick={() => toggleTask(taskKey)}
-                                      className="flex items-center gap-2.5 text-xs text-[#b8ada2] cursor-pointer hover:text-[#f2ebe2]"
+                                      className="flex items-center gap-2.5 text-xs text-[var(--ink-secondary)] cursor-pointer hover:text-[var(--ink-primary)]"
                                     >
                                       <div
                                         className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${
                                           isTaskDone
                                             ? "bg-[#d5cf66] border-[#d5cf66] text-[#232402]"
-                                            : "border-[#574d48] bg-[#1e1a17]"
+                                            : "border-[var(--border-subtle)] bg-[var(--bg-page)]"
                                         }`}
                                       >
                                         {isTaskDone && <Check className="w-3 h-3 stroke-[3]" />}
@@ -429,7 +429,7 @@ function StudyPlannerContent() {
 
             {/* Right Column: Active Recall Self-Test Panel */}
             <div className="space-y-6">
-              <div className="p-6 sm:p-8 rounded-3xl bg-[#272220] border border-[#3d3532] shadow-xl space-y-5 sticky top-24">
+              <div className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-xl space-y-5 sticky top-24">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-black uppercase tracking-widest text-[#d5cf66]">
                     Active Recall Self-Test
@@ -438,17 +438,17 @@ function StudyPlannerContent() {
                 </div>
 
                 <div>
-                  <h3 className="font-heading text-xl font-black text-[#f2ebe2] mb-1">
+                  <h3 className="font-heading text-xl font-black text-[var(--ink-primary)] mb-1">
                     Week {currentPlan.week} Knowledge Check
                   </h3>
-                  <p className="text-xs text-[#b8ada2]">
+                  <p className="text-xs text-[var(--ink-secondary)]">
                     Testing your retention of {currentPlan.title}. Empirical research demonstrates active recall doubles 30-day concept retention over passive re-reading.
                   </p>
                 </div>
 
                 {/* Dynamic Quiz Question */}
-                <div className="p-5 rounded-2xl bg-[#1e1a17] border border-[#3d3532] space-y-4">
-                  <p className="text-xs sm:text-sm font-bold text-[#f2ebe2] leading-snug">
+                <div className="p-5 rounded-2xl bg-[var(--bg-deep)] border border-[var(--border-subtle)] space-y-4">
+                  <p className="text-xs sm:text-sm font-bold text-[var(--ink-primary)] leading-snug">
                     {currentPlan.quiz.question}
                   </p>
 
@@ -470,7 +470,7 @@ function StudyPlannerContent() {
                                 : "bg-[#d5cf66] text-[#232402] font-bold"
                               : isSubmitted && isCorrect
                               ? "bg-emerald-950/60 border border-emerald-500/70 text-emerald-300 font-semibold"
-                              : "bg-[#272220] border border-[#3d3532] text-[#b8ada2] hover:text-[#f2ebe2]"
+                              : "bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--ink-secondary)] hover:text-[var(--ink-primary)]"
                           }`}
                         >
                           <div className="flex items-start gap-2.5">
@@ -509,14 +509,14 @@ function StudyPlannerContent() {
                 </div>
 
                 {/* Week Navigation Jumpers */}
-                <div className="pt-3 border-t border-[#3d3532] flex items-center justify-between text-xs">
+                <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs">
                   <button
                     disabled={selectedWeek === 1}
                     onClick={() => {
                       setSelectedWeek(Math.max(1, selectedWeek - 1));
                       setExpandedDays({ [`${selectedWeek - 1}-1`]: true });
                     }}
-                    className="font-bold text-[#b8ada2] hover:text-[#f2ebe2] disabled:opacity-30 cursor-pointer"
+                    className="font-bold text-[var(--ink-secondary)] hover:text-[var(--ink-primary)] disabled:opacity-30 cursor-pointer"
                   >
                     &larr; Previous Week
                   </button>
@@ -542,10 +542,10 @@ function StudyPlannerContent() {
           <div className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-heading text-2xl font-black text-[#f2ebe2]">
+                <h3 className="font-heading text-2xl font-black text-[var(--ink-primary)]">
                   Complete 12-Week Curriculum Roadmap
                 </h3>
-                <p className="text-xs sm:text-sm text-[#b8ada2]">
+                <p className="text-xs sm:text-sm text-[var(--ink-secondary)]">
                   Click any week to switch to its detailed Day-by-Day schedule and active recall self-test.
                 </p>
               </div>
@@ -574,8 +574,8 @@ function StudyPlannerContent() {
                     }}
                     className={`p-6 rounded-3xl border transition-all cursor-pointer flex flex-col justify-between gap-4 ${
                       isSelected
-                        ? "bg-[#272220] border-[#d5cf66] ring-2 ring-[#d5cf66]/40 shadow-xl"
-                        : "bg-[#272220] border-[#3d3532] hover:border-[#574d48] hover:-translate-y-0.5"
+                        ? "bg-[var(--bg-surface)] border-[#d5cf66] ring-2 ring-[#d5cf66]/40 shadow-xl"
+                        : "bg-[var(--bg-surface)] border-[var(--border-subtle)] hover:border-[var(--border-strong)] hover:-translate-y-0.5"
                     }`}
                   >
                     <div>
@@ -583,24 +583,24 @@ function StudyPlannerContent() {
                         <span className="font-black uppercase tracking-wider text-[#d5cf66]">
                           Week {plan.week}
                         </span>
-                        <span className="text-xs text-[#82756a] font-bold">
+                        <span className="text-xs text-[var(--ink-muted)] font-bold">
                           {completedInThisWeek}/{plan.days.length} Days ({percent}%)
                         </span>
                       </div>
 
-                      <h4 className="font-heading text-xl font-black text-[#f2ebe2] mb-1">
+                      <h4 className="font-heading text-xl font-black text-[var(--ink-primary)] mb-1">
                         {plan.title}
                       </h4>
-                      <p className="text-xs font-bold text-[#b8ada2] mb-3">
+                      <p className="text-xs font-bold text-[var(--ink-secondary)] mb-3">
                         {plan.subtitle}
                       </p>
 
-                      <p className="text-xs text-[#b8ada2] line-clamp-3 leading-relaxed mb-4">
+                      <p className="text-xs text-[var(--ink-secondary)] line-clamp-3 leading-relaxed mb-4">
                         {plan.weeklyObjective}
                       </p>
 
                       {/* Days preview pill list */}
-                      <div className="space-y-1.5 pt-3 border-t border-[#3d3532]/60">
+                      <div className="space-y-1.5 pt-3 border-t border-[var(--border-subtle)]/60">
                         {plan.days.slice(0, 3).map((d) => (
                           <div key={d.day} className="flex items-center gap-2 text-[11px] text-[#82756a]">
                             <span className="font-mono text-[10px] text-[#d5cf66]">D{d.day}</span>

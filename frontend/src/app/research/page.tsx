@@ -138,17 +138,17 @@ function ResearchContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1e1a17] text-[#f2ebe2]">
+    <div className="min-h-screen bg-[var(--bg-page)] text-[var(--ink-primary)]">
       {/* Top Banner */}
-      <div className="bg-dot-matrix py-12 border-b border-[#3d3532]">
+      <div className="bg-dot-matrix py-12 border-b border-[var(--border-subtle)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-xs font-black uppercase tracking-widest text-[#d5cf66] mb-2">
+          <div className="text-xs font-black uppercase tracking-widest text-[var(--accent-gold)] mb-2">
             Automated Academic Discovery & Radar
           </div>
-          <h1 className="font-heading text-4xl sm:text-5xl font-black text-[#f2ebe2] tracking-tight mb-3">
+          <h1 className="font-heading text-4xl sm:text-5xl font-black text-[var(--ink-primary)] tracking-tight mb-3">
             Source Quality & Research Radar
           </h1>
-          <p className="text-base sm:text-lg text-[#b8ada2] max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-[var(--ink-secondary)] max-w-2xl leading-relaxed">
             Continuously scanning OpenAlex, Crossref, and arXiv for high-impact preprints in cognitive psychology, decision theory, and epistemology.
           </p>
 
@@ -184,7 +184,7 @@ function ResearchContent() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Resources Stream (Col 1 & 2) */}
           <div className="lg:col-span-2 space-y-4">
-            <h2 className="font-heading text-2xl font-black text-[#f2ebe2] mb-4">
+            <h2 className="font-heading text-2xl font-black text-[var(--ink-primary)] mb-4">
               Discovered Academic Papers ({papers.length})
             </h2>
 
@@ -210,7 +210,7 @@ function ResearchContent() {
                       </span>
                     </div>
 
-                    <h3 className="font-heading text-lg font-black text-[#f2ebe2] mb-2 hover:text-[#d5cf66] transition-colors">
+                    <h3 className="font-heading text-lg font-black text-[var(--ink-primary)] mb-2 hover:text-[var(--accent-gold)] transition-colors">
                       {paper.title}
                     </h3>
                     <p className="text-xs text-[#82756a] mb-3">
@@ -221,8 +221,8 @@ function ResearchContent() {
                     </p>
 
                     <div className="pt-3 border-t border-[#3d3532]/60 flex items-center justify-between text-xs">
-                      <span className="text-[#9f9488]">
-                        Synthesizes into: <strong className="text-[#f2ebe2]">{paper.target_model_name}</strong>
+                      <span className="text-[var(--ink-muted)]">
+                        Synthesizes into: <strong className="text-[var(--ink-primary)]">{paper.target_model_name}</strong>
                       </span>
                       <Link
                         href={`/articles/${paper.target_slug}`}
@@ -249,10 +249,10 @@ function ResearchContent() {
               </div>
 
               <div>
-                <h3 className="font-heading text-xl font-black text-[#f2ebe2] mb-1">
+                <h3 className="font-heading text-xl font-black text-[var(--ink-primary)] mb-1">
                   Multi-Dimensional Rigor Metric
                 </h3>
-                <p className="text-xs text-[#b8ada2]">
+                <p className="text-xs text-[var(--ink-secondary)]">
                   Evaluated on methodology rigor, citation topology, peer review venue, and sample replication.
                 </p>
               </div>
