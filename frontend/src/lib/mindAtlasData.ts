@@ -31,25 +31,25 @@ export interface MentalModel {
 }
 
 export const DISCIPLINES = [
-  { id: "psychology", label: "Psychology", count: 142, color: "#d5bcfe", strong: "#7057a1", dot: "#654b99", textDark: "#1f1438" },
-  { id: "cognitive-science", label: "Cognitive Science", count: 98, color: "#98dcfa", strong: "#007098", dot: "#006886", textDark: "#04222e" },
-  { id: "philosophy", label: "Philosophy", count: 116, color: "#e0da7a", strong: "#6f6b04", dot: "#626400", textDark: "#232402" },
-  { id: "logic", label: "Critical Thinking & Logic", count: 84, color: "#8dbd39", strong: "#303f17", dot: "#315500", textDark: "#182405" },
-  { id: "behavioral-economics", label: "Behavioral Economics", count: 76, color: "#ee9976", strong: "#621a00", dot: "#893106", textDark: "#330d00" },
-  { id: "neuroscience", label: "Neuroscience", count: 65, color: "#97b5f6", strong: "#002e70", dot: "#004d96", textDark: "#051838" },
-  { id: "scientific-reasoning", label: "Scientific Reasoning", count: 52, color: "#7cd0c5", strong: "#006059", dot: "#006256", textDark: "#032623" },
-  { id: "social-psychology", label: "Social Psychology", count: 89, color: "#f095d2", strong: "#8c0267", dot: "#8b1d6f", textDark: "#300323" },
-  { id: "epistemology", label: "Epistemology & Ethics", count: 63, color: "#e6b677", strong: "#8c5207", dot: "#764c00", textDark: "#331c02" },
+  { id: "psychology", label: "Psychology", color: "#d5bcfe", strong: "#7057a1", dot: "#654b99", textDark: "#1f1438" },
+  { id: "cognitive-science", label: "Cognitive Science", color: "#98dcfa", strong: "#007098", dot: "#006886", textDark: "#04222e" },
+  { id: "philosophy", label: "Philosophy", color: "#e0da7a", strong: "#6f6b04", dot: "#626400", textDark: "#232402" },
+  { id: "logic", label: "Critical Thinking & Logic", color: "#8dbd39", strong: "#303f17", dot: "#315500", textDark: "#182405" },
+  { id: "behavioral-economics", label: "Behavioral Economics", color: "#ee9976", strong: "#621a00", dot: "#893106", textDark: "#330d00" },
+  { id: "neuroscience", label: "Neuroscience", color: "#97b5f6", strong: "#002e70", dot: "#004d96", textDark: "#051838" },
+  { id: "scientific-reasoning", label: "Scientific Reasoning", color: "#7cd0c5", strong: "#006059", dot: "#006256", textDark: "#032623" },
+  { id: "social-psychology", label: "Social Psychology", color: "#f095d2", strong: "#8c0267", dot: "#8b1d6f", textDark: "#300323" },
+  { id: "epistemology", label: "Epistemology & Ethics", color: "#e6b677", strong: "#8c5207", dot: "#764c00", textDark: "#331c02" },
 ];
 
 export const CONCEPT_TYPES = [
-  { id: "cognitive-bias", label: "Cognitive Bias", count: 128 },
-  { id: "mental-model", label: "Mental Model", count: 94 },
-  { id: "logical-fallacy", label: "Logical Fallacy", count: 62 },
-  { id: "scientific-law", label: "Scientific Law", count: 45 },
-  { id: "philosophical-paradox", label: "Philosophical Paradox", count: 38 },
-  { id: "heuristic", label: "Heuristic", count: 55 },
-  { id: "decision-framework", label: "Decision Framework", count: 41 },
+  { id: "cognitive-bias", label: "Cognitive Bias" },
+  { id: "mental-model", label: "Mental Model" },
+  { id: "logical-fallacy", label: "Logical Fallacy" },
+  { id: "scientific-law", label: "Scientific Law" },
+  { id: "philosophical-paradox", label: "Philosophical Paradox" },
+  { id: "heuristic", label: "Heuristic" },
+  { id: "decision-framework", label: "Decision Framework" },
 ];
 
 export const MENTAL_MODELS: MentalModel[] = [

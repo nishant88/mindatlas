@@ -267,7 +267,6 @@ export default function MindAtlasHomePage() {
                   style={{ backgroundColor: discipline.dot }}
                 />
                 <span>{discipline.label}</span>
-                <span className="opacity-70 font-bold">· {discipline.count}</span>
               </button>
             );
           })}
@@ -308,9 +307,6 @@ export default function MindAtlasHomePage() {
                 }`}
               >
                 <span>{type.label}</span>
-                <span className={isSelected ? "text-[var(--accent-gold-text)]/80" : "text-[var(--ink-muted)]"}>
-                  · {type.count}
-                </span>
               </button>
             );
           })}

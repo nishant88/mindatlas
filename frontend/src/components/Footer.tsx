@@ -55,7 +55,6 @@ export default function Footer() {
                       style={{ backgroundColor: disc.color }}
                     />
                     <span>{disc.label}</span>
-                    <span className="text-[var(--ink-muted)]">({disc.count})</span>
                   </Link>
                 </li>
               ))}

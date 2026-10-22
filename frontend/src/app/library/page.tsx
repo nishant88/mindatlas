@@ -135,7 +135,7 @@ function LibraryCatalog() {
                         : "bg-[var(--pill-unselected-bg)] text-[var(--ink-secondary)] border-[var(--border-subtle)] hover:text-[var(--ink-primary)]"
                     }`}
                   >
-                    {t.label} ({t.count})
+                    {t.label}
                   </button>
                 );
               })}

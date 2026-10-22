@@ -17,7 +17,7 @@ export default function RainbowStrip({ className = "" }: { className?: string })
           href={`/library?discipline=${encodeURIComponent(discipline.label)}`}
           className="flex-1 h-full transition-transform hover:scale-y-125 focus:outline-none"
           style={{ backgroundColor: discipline.color }}
-          title={`${discipline.label} (${discipline.count} synthesized models)`}
+          title={discipline.label}
         />
       ))}
     </div>
