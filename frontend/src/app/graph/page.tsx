@@ -79,17 +79,17 @@ function KnowledgeGraphContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1e1a17] text-[#f2ebe2]">
+    <div className="min-h-screen bg-[var(--bg-page)] text-[var(--ink-primary)]">
       {/* Top Banner */}
-      <div className="bg-dot-matrix py-12 border-b border-[#3d3532]">
+      <div className="bg-dot-matrix py-12 border-b border-[var(--border-subtle)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-xs font-black uppercase tracking-widest text-[#d5cf66] mb-2">
+          <div className="text-xs font-black uppercase tracking-widest text-[var(--accent-gold)] mb-2">
             Interconnected Conceptual Architecture
           </div>
-          <h1 className="font-heading text-4xl sm:text-5xl font-black text-[#f2ebe2] tracking-tight mb-3">
+          <h1 className="font-heading text-4xl sm:text-5xl font-black text-[var(--ink-primary)] tracking-tight mb-3">
             MindAtlas Knowledge Graph
           </h1>
-          <p className="text-base sm:text-lg text-[#b8ada2] max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-[var(--ink-secondary)] max-w-2xl leading-relaxed">
             Explore topological relationships between psychological mechanisms, cognitive biases, and philosophical foundations. Click any node to inspect definitions and evidence linkages.
           </p>
 
@@ -101,8 +101,8 @@ function KnowledgeGraphContent() {
                 onClick={() => setSelectedRelType(rt)}
                 className={`text-xs px-3 py-1.5 rounded-full font-bold transition-all cursor-pointer ${
                   selectedRelType === rt
-                    ? "bg-[#d5cf66] text-[#232402]"
-                    : "bg-[#272220] border border-[#3d3532] text-[#b8ada2] hover:text-[#f2ebe2]"
+                    ? "bg-[var(--accent-gold)] text-[var(--accent-gold-text)]"
+                    : "bg-[var(--pill-unselected-bg)] border border-[var(--border-subtle)] text-[var(--ink-secondary)] hover:text-[var(--ink-primary)]"
                 }`}
               >
                 {rt.replace(/_/g, " ")}
@@ -118,9 +118,9 @@ function KnowledgeGraphContent() {
         {/* Main Canvas + Side Inspector Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 min-h-[580px]">
           {/* Interactive Canvas Area */}
-          <div className="lg:col-span-2 rounded-3xl border border-[#3d3532] bg-[#272220] p-6 relative overflow-hidden flex flex-col justify-between shadow-2xl">
+          <div className="lg:col-span-2 rounded-3xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 relative overflow-hidden flex flex-col justify-between shadow-2xl">
             {/* Top legend */}
-            <div className="flex flex-wrap items-center gap-3 text-xs text-[#b8ada2] z-10 bg-[#1e1a17]/90 backdrop-blur-md p-2.5 rounded-2xl border border-[#3d3532] w-fit">
+            <div className="flex flex-wrap items-center gap-3 text-xs text-[var(--ink-secondary)] z-10 bg-[var(--bg-page)]/90 backdrop-blur-md p-2.5 rounded-2xl border border-[var(--border-subtle)] w-fit">
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#d5bcfe]"></span> Psychology</span>
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#98dcfa]"></span> Cognitive Science</span>
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#e0da7a]"></span> Philosophy</span>
@@ -129,7 +129,7 @@ function KnowledgeGraphContent() {
             </div>
 
             {/* SVG Graph Visualization with dot grid */}
-            <div className="w-full h-[460px] flex items-center justify-center my-auto overflow-hidden bg-dot-matrix rounded-2xl border border-[#3d3532]/60 mt-4">
+            <div className="w-full h-[460px] flex items-center justify-center my-auto overflow-hidden bg-dot-matrix rounded-2xl border border-[var(--border-subtle)] mt-4">
               <svg viewBox="0 0 800 500" className="w-full h-full select-none">
                 <defs>
                   <marker
@@ -208,7 +208,7 @@ function KnowledgeGraphContent() {
                         cy={pos.y}
                         r={isSelected ? 16 : 13}
                         fill={nodeColor}
-                        stroke={isSelected ? "#ffffff" : "#2b2622"}
+                        stroke={isSelected ? "var(--ink-primary, #ffffff)" : "var(--bg-deep, #2b2622)"}
                         strokeWidth={3}
                         className="transition-transform duration-200 group-hover:scale-110"
                       />
@@ -220,8 +220,8 @@ function KnowledgeGraphContent() {
                         textAnchor="middle"
                         className={`text-xs font-heading font-black transition-colors ${
                           isSelected
-                            ? "fill-[#f2ebe2] font-black"
-                            : "fill-[#b8ada2] group-hover:fill-[#f2ebe2]"
+                            ? "fill-[var(--ink-primary)] font-black"
+                            : "fill-[var(--ink-secondary)] group-hover:fill-[var(--ink-primary)]"
                         }`}
                       >
                         {node.name}
@@ -232,13 +232,13 @@ function KnowledgeGraphContent() {
               </svg>
             </div>
 
-            <div className="text-xs text-[#82756a] text-right mt-3">
+            <div className="text-xs text-[var(--ink-muted)] text-right mt-3">
               Displaying {graphData?.total_nodes || 8} concepts • {graphData?.total_links || 6} verified topological relationships
             </div>
           </div>
 
           {/* Node Inspector Sidebar Panel with Dashed Sketched Border */}
-          <div className="rounded-3xl border-2 border-dashed border-[#d5cf66] bg-[#272220] p-6 sm:p-8 flex flex-col justify-between shadow-2xl">
+          <div className="rounded-3xl border-2 border-dashed border-[var(--accent-gold)] bg-[var(--bg-surface)] p-6 sm:p-8 flex flex-col justify-between shadow-2xl">
             {selectedNode ? (
               <div className="space-y-5">
                 <div className="flex items-center justify-between text-xs">

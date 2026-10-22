@@ -28,8 +28,11 @@ import {
   Maximize2,
   Type,
   Layers,
-  GraduationCap
+  GraduationCap,
+  Moon,
+  Sun
 } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 import { MENTAL_MODELS, DISCIPLINES } from "@/lib/mindAtlasData";
 import { getComprehensiveArticle, ComprehensiveArticle } from "@/lib/comprehensiveArticles";
 import Illustration from "@/components/Illustrations";
@@ -42,6 +45,7 @@ interface ArticleClientProps {
 }
 
 export default function ArticleClient({ initialSlug }: ArticleClientProps) {
+  const { isDark, toggleTheme } = useTheme();
   const params = useParams();
 
   // Resolve the actual slug reliably across SSR, SSG, client hydration, and dynamic navigation
@@ -156,12 +160,12 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
     xl: "text-[20px] sm:text-[21px] leading-[1.9]",
   }[fontSize];
 
-  const proseFamilyClasses = fontFamily === "serif" ? "font-serif text-[#f0e8dc]" : "font-sans text-[#e5dbcf]";
+  const proseFamilyClasses = fontFamily === "serif" ? "font-serif text-[var(--ink-primary)]" : "font-sans text-[var(--ink-primary)]";
 
   return (
-    <div className="min-h-screen bg-[#1e1a17] text-[#f2ebe2] selection:bg-[#d5cf66]/30 selection:text-[#f6efe1]">
+    <div className="min-h-screen bg-[var(--bg-page)] text-[var(--ink-primary)] selection:bg-[#d5cf66]/30 selection:text-[#f6efe1] transition-colors duration-150">
       {/* Scroll Reading Progress Bar at Very Top */}
-      <div className="fixed top-0 left-0 right-0 h-1.5 bg-[#272220] z-50">
+      <div className="fixed top-0 left-0 right-0 h-1.5 bg-[var(--bg-surface)] z-50">
         <div
           className="h-full transition-all duration-150 ease-out"
           style={{
@@ -172,14 +176,14 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
       </div>
 
       {/* Reader Navigation & Customization Toolbar */}
-      <header className="sticky top-0 z-40 border-b border-[#3d3532] bg-[#171412]/95 backdrop-blur-md">
+      <header className="sticky top-[72px] z-40 border-b border-[var(--border-subtle)] bg-[var(--bg-deep)]/95 backdrop-blur-md transition-colors duration-150">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
           {/* Breadcrumb / Back Link */}
           <Link
             href="/library"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#b8ada2] hover:text-[#f2ebe2] transition-colors shrink-0"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[var(--ink-secondary)] hover:text-[var(--ink-primary)] transition-colors shrink-0"
           >
-            <ArrowLeft className="w-4 h-4 text-[#d5cf66]" />
+            <ArrowLeft className="w-4 h-4 text-[var(--accent-gold)]" />
             <span className="hidden sm:inline">Back to Knowledge Library</span>
             <span className="sm:hidden">Library</span>
           </Link>
@@ -187,11 +191,11 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
           {/* Reader Customization Controls */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Font Family Toggle */}
-            <div className="flex items-center rounded-full border border-[#3d3532] bg-[#272220] p-0.5 text-xs">
+            <div className="flex items-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-0.5 text-xs">
               <button
                 onClick={() => setFontFamily("sans")}
                 className={`px-2.5 py-1 rounded-full font-bold transition-all ${
-                  fontFamily === "sans" ? "bg-[#3d3532] text-[#f2ebe2]" : "text-[#82756a] hover:text-[#b8ada2]"
+                  fontFamily === "sans" ? "bg-[var(--border-subtle)] text-[var(--ink-primary)]" : "text-[var(--ink-muted)] hover:text-[var(--ink-secondary)]"
                 }`}
                 title="Sans-serif modern typography"
               >
@@ -200,7 +204,7 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
               <button
                 onClick={() => setFontFamily("serif")}
                 className={`px-2.5 py-1 rounded-full font-serif font-bold transition-all ${
-                  fontFamily === "serif" ? "bg-[#3d3532] text-[#f2ebe2]" : "text-[#82756a] hover:text-[#b8ada2]"
+                  fontFamily === "serif" ? "bg-[var(--border-subtle)] text-[var(--ink-primary)]" : "text-[var(--ink-muted)] hover:text-[var(--ink-secondary)]"
                 }`}
                 title="Serif academic editorial typography"
               >
@@ -209,31 +213,41 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
             </div>
 
             {/* Font Size Adjuster */}
-            <div className="hidden md:flex items-center rounded-full border border-[#3d3532] bg-[#272220] p-0.5 text-xs font-bold text-[#82756a]">
+            <div className="hidden md:flex items-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-0.5 text-xs font-bold text-[var(--ink-muted)]">
               <button
                 onClick={() => setFontSize("normal")}
-                className={`px-2 py-1 rounded-full ${fontSize === "normal" ? "bg-[#3d3532] text-[#f2ebe2]" : "hover:text-[#b8ada2]"}`}
+                className={`px-2 py-1 rounded-full ${fontSize === "normal" ? "bg-[var(--border-subtle)] text-[var(--ink-primary)]" : "hover:text-[var(--ink-secondary)]"}`}
               >
                 A
               </button>
               <button
                 onClick={() => setFontSize("large")}
-                className={`px-2 py-1 rounded-full text-sm ${fontSize === "large" ? "bg-[#3d3532] text-[#f2ebe2]" : "hover:text-[#b8ada2]"}`}
+                className={`px-2 py-1 rounded-full text-sm ${fontSize === "large" ? "bg-[var(--border-subtle)] text-[var(--ink-primary)]" : "hover:text-[var(--ink-secondary)]"}`}
               >
                 A+
               </button>
               <button
                 onClick={() => setFontSize("xl")}
-                className={`px-2 py-1 rounded-full text-base ${fontSize === "xl" ? "bg-[#3d3532] text-[#f2ebe2]" : "hover:text-[#b8ada2]"}`}
+                className={`px-2 py-1 rounded-full text-base ${fontSize === "xl" ? "bg-[var(--border-subtle)] text-[var(--ink-primary)]" : "hover:text-[var(--ink-secondary)]"}`}
               >
                 A++
               </button>
             </div>
 
+            {/* Dark / Light Mode Toggle in Reader */}
+            <button
+              onClick={toggleTheme}
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              className="w-8 h-8 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-center justify-center text-[var(--ink-secondary)] hover:text-[var(--ink-primary)] transition-all cursor-pointer"
+            >
+              {isDark ? <Moon className="w-3.5 h-3.5 text-[#f2ebe2]" /> : <Sun className="w-3.5 h-3.5 text-amber-600" />}
+            </button>
+
             {/* Save to Reading List Button */}
             <button
               onClick={() => setSaved(!saved)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-[#3d3532] bg-[#272220] text-[#b8ada2] hover:text-[#f2ebe2] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--ink-secondary)] hover:text-[var(--ink-primary)] transition-colors cursor-pointer"
             >
               <Bookmark className={`w-3.5 h-3.5 ${saved ? "fill-[#d5cf66] text-[#d5cf66]" : ""}`} />
               <span className="hidden sm:inline">{saved ? "Saved" : "Save"}</span>
@@ -242,7 +256,7 @@ export default function ArticleClient({ initialSlug }: ArticleClientProps) {
             {/* Share / Copy URL Button */}
             <button
               onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-[#3d3532] bg-[#272220] text-[#b8ada2] hover:text-[#f2ebe2] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--ink-secondary)] hover:text-[var(--ink-primary)] transition-colors cursor-pointer"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
               <span className="hidden sm:inline">{copied ? "Copied" : "Share"}</span>

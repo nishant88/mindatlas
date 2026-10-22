@@ -94,9 +94,9 @@ function LibraryCatalog() {
                     onClick={() => setSelectedDiscipline(isSelected ? null : d.label)}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer"
                     style={{
-                      backgroundColor: isSelected ? d.color : "#272220",
-                      color: isSelected ? d.textDark : "#b8ada2",
-                      border: `1px solid ${isSelected ? d.color : "#3d3532"}`,
+                      backgroundColor: isSelected ? d.color : "var(--pill-unselected-bg, #272220)",
+                      color: isSelected ? d.textDark : "var(--pill-unselected-text, #b8ada2)",
+                      border: `1px solid ${isSelected ? d.color : "var(--border-subtle, #3d3532)"}`,
                     }}
                   >
                     <span className="w-2 h-2 rounded-full" style={{ backgroundColor: d.dot }} />

@@ -4,16 +4,16 @@ import React from "react";
 
 interface DotMeterProps {
   percentage: number; // 0 to 100
-  color?: string; // hex color for active dots
-  mutedColor?: string; // hex color for inactive dots
+  color?: string; // color for active dots
+  mutedColor?: string; // color for inactive dots
   size?: "sm" | "md" | "lg";
   className?: string;
 }
 
 export default function DotMeter({
   percentage,
-  color = "#d5cf66",
-  mutedColor = "#3d3532",
+  color = "var(--accent-gold, #d5cf66)",
+  mutedColor = "var(--dot-inactive, #3d3532)",
   size = "md",
   className = "",
 }: DotMeterProps) {
@@ -35,7 +35,7 @@ export default function DotMeter({
 
   return (
     <div
-      className={`inline-grid grid-cols-10 ${gapClass} p-2 rounded-xl bg-[#171412]/80 border border-[#3d3532]/60 select-none ${className}`}
+      className={`inline-grid grid-cols-10 ${gapClass} p-2 rounded-xl bg-[var(--bg-deep)]/80 border border-[var(--border-subtle)] select-none transition-colors ${className}`}
       aria-label={`Prevalence visualizer: ${percentage} out of 100`}
       title={`${percentage}% of population`}
     >

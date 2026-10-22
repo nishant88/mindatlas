@@ -5,12 +5,15 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Illustration from "./Illustrations";
 import { MentalModel, DISCIPLINES } from "@/lib/mindAtlasData";
+import { useTheme } from "@/context/ThemeContext";
 
 interface MentalModelCardProps {
   model: MentalModel;
 }
 
 export default function MentalModelCard({ model }: MentalModelCardProps) {
+  const { isDark } = useTheme();
+
   const disciplineMeta = DISCIPLINES.find((d) => d.id === model.discipline) || {
     id: model.discipline,
     label: model.disciplineLabel,
@@ -20,8 +23,11 @@ export default function MentalModelCard({ model }: MentalModelCardProps) {
     textDark: "#1f1438",
   };
 
+  // High-contrast punchline color adapting to dark vs light mode
+  const punchlineColor = isDark ? disciplineMeta.color : disciplineMeta.strong;
+
   return (
-    <article className="group relative flex flex-col rounded-3xl bg-[#272220] border border-[#3d3532] overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:border-[#574d48] hover:shadow-xl hover:shadow-black/30">
+    <article className="group relative flex flex-col rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-xl hover:shadow-black/10 dark:hover:shadow-black/30">
       {/* Top Illustration Area */}
       <Link
         href={`/articles/${model.slug}`}
@@ -53,27 +59,27 @@ export default function MentalModelCard({ model }: MentalModelCardProps) {
               {disciplineMeta.label}
             </Link>
 
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#9f9488]">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
               {model.conceptType}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="font-heading text-xl sm:text-2xl font-black text-[#f2ebe2] tracking-tight mb-2 group-hover:underline decoration-2 underline-offset-2">
+          <h3 className="font-heading text-xl sm:text-2xl font-black text-[var(--ink-primary)] tracking-tight mb-2 group-hover:underline decoration-2 underline-offset-2">
             <Link href={`/articles/${model.slug}`}>{model.title}</Link>
           </h3>
 
           {/* Summary */}
-          <p className="text-sm text-[#b8ada2] leading-relaxed line-clamp-3">
+          <p className="text-sm text-[var(--ink-secondary)] leading-relaxed line-clamp-3">
             {model.summary}
           </p>
         </div>
 
         {/* Bottom Empirical Punchline */}
-        <div className="pt-3 border-t border-[#3d3532]/60 space-y-3">
+        <div className="pt-3 border-t border-[var(--border-subtle)] space-y-3">
           <p
-            className="text-xs sm:text-sm font-black leading-snug"
-            style={{ color: disciplineMeta.color }}
+            className="text-xs sm:text-sm font-black leading-snug transition-colors"
+            style={{ color: punchlineColor }}
           >
             {model.replicationPunchline}
           </p>
@@ -81,10 +87,10 @@ export default function MentalModelCard({ model }: MentalModelCardProps) {
           {/* Action Link to Full Article */}
           <Link
             href={`/articles/${model.slug}`}
-            className="w-full py-2.5 px-4 rounded-xl bg-[#1e1a17] hover:bg-[#3d3532] border border-[#3d3532] hover:border-[#d5cf66]/50 text-xs font-bold text-[#d5cf66] flex items-center justify-between transition-all group/btn"
+            className="w-full py-2.5 px-4 rounded-xl bg-[var(--bg-deep)] hover:bg-[var(--bg-surface-raised)] border border-[var(--border-subtle)] hover:border-[#d5cf66]/50 text-xs font-bold text-[var(--accent-gold)] flex items-center justify-between transition-all group/btn"
           >
             <span>Read Full Treatise ({model.readingTimeMins || 15} min)</span>
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1 text-[#d5cf66]" />
+            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
           </Link>
         </div>
       </div>

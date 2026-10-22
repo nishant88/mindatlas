@@ -5,6 +5,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+import { ThemeProvider } from "@/context/ThemeContext";
+
 const nunito = Nunito({
   subsets: ["latin"],
   variable: "--font-nunito",
@@ -43,17 +45,41 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${nunito.variable} ${inter.variable} dark h-full`}>
-      <body className="min-h-full flex flex-col bg-[#1e1a17] text-[#f2ebe2] antialiased selection:bg-[#d5cf66] selection:text-[#171412]">
-        <Suspense fallback={<div className="h-18 w-full bg-[#1e1a17] border-b border-[#3d3532]" />}>
-          <Navbar />
-        </Suspense>
-        <main className="flex-1 w-full">
-          <Suspense fallback={<div className="py-20 text-center text-sm text-[#b8ada2]">Loading MindAtlas module...</div>}>
-            {children}
+    <html lang="en" className={`${nunito.variable} ${inter.variable} dark h-full`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('mindatlas-theme');
+                  if (stored === 'light') {
+                    document.documentElement.classList.add('light');
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.setAttribute('data-theme', 'light');
+                  } else {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-[var(--bg-page)] text-[var(--ink-primary)] antialiased selection:bg-[#d5cf66] selection:text-[#171412] transition-colors duration-150">
+        <ThemeProvider>
+          <Suspense fallback={<div className="h-18 w-full bg-[var(--bg-page)] border-b border-[var(--border-subtle)]" />}>
+            <Navbar />
           </Suspense>
-        </main>
-        <Footer />
+          <main className="flex-1 w-full">
+            <Suspense fallback={<div className="py-20 text-center text-sm text-[var(--ink-secondary)]">Loading MindAtlas module...</div>}>
+              {children}
+            </Suspense>
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

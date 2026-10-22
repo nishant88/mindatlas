@@ -639,3 +639,5 @@ export async function searchHybrid(query: string) {
 
   return fetchWithFallback(`/search?q=${encodeURIComponent(query)}`, fallbackSearch);
 }
+
+export const searchMindAtlas = searchHybrid;

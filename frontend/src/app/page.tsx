@@ -86,18 +86,18 @@ export default function MindAtlasHomePage() {
 
               {/* Pill Search Input */}
               <div className="relative w-full">
-                <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-[#82756a] pointer-events-none" />
+                <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--ink-muted)] pointer-events-none" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder='Search mental models, e.g. "cognitive dissonance", "bayesian", "falsification"'
-                  className="w-full pl-13 pr-6 py-3.5 sm:py-4 rounded-full bg-[#272220] border border-[#3d3532] text-[#f2ebe2] placeholder-[#82756a] text-sm sm:text-base font-medium focus:outline-none focus:border-[#d5cf66] focus:ring-1 focus:ring-[#d5cf66] transition-all shadow-inner"
+                  className="w-full pl-13 pr-6 py-3.5 sm:py-4 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--ink-primary)] placeholder-[var(--ink-muted)] text-sm sm:text-base font-medium focus:outline-none focus:border-[#d5cf66] focus:ring-1 focus:ring-[#d5cf66] transition-all shadow-inner"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-[#82756a] hover:text-[#f2ebe2] px-2 py-1 rounded-full bg-[#1e1a17]"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-[var(--ink-muted)] hover:text-[var(--ink-primary)] px-2 py-1 rounded-full bg-[var(--bg-deep)]"
                   >
                     Clear
                   </button>
@@ -157,15 +157,15 @@ export default function MindAtlasHomePage() {
 
             {/* Right Column: "CORE MENTAL MODEL" Featured Card */}
             <div className="lg:col-span-5">
-              <div className="relative p-6 sm:p-8 rounded-[28px] bg-[#272220] border-2 border-dashed border-[#d5cf66] shadow-2xl flex flex-col justify-between">
+              <div className="relative p-6 sm:p-8 rounded-[28px] bg-[var(--bg-surface)] border-2 border-dashed border-[var(--accent-gold)] shadow-2xl flex flex-col justify-between">
                 <div>
                   {/* Category Tracker */}
-                  <div className="text-xs font-black uppercase tracking-widest text-[#d5cf66] mb-3">
+                  <div className="text-xs font-black uppercase tracking-widest text-[var(--accent-gold)] mb-3">
                     CORE MENTAL MODEL
                   </div>
 
                   {/* Title */}
-                  <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2] tracking-tight mb-3">
+                  <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)] tracking-tight mb-3">
                     <Link
                       href={`/articles/${featuredModel.slug}`}
                       className="hover:underline decoration-2 underline-offset-2"
@@ -175,7 +175,7 @@ export default function MindAtlasHomePage() {
                   </h2>
 
                   {/* Summary */}
-                  <p className="text-sm sm:text-base text-[#b8ada2] leading-relaxed mb-5">
+                  <p className="text-sm sm:text-base text-[var(--ink-secondary)] leading-relaxed mb-5">
                     {featuredModel.summary}
                   </p>
 
@@ -185,26 +185,24 @@ export default function MindAtlasHomePage() {
                       <span className="w-2 h-2 rounded-full bg-[#654b99]" />
                       {featuredModel.disciplineLabel}
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#9f9488]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--ink-muted)]">
                       {featuredModel.conceptType}
                     </span>
                   </div>
                 </div>
 
                 {/* Lower callout box with 10x10 dot matrix meter */}
-                <div className="p-4 rounded-2xl bg-[#1e1a17] border border-[#3d3532] flex items-center gap-4">
+                <div className="p-4 rounded-2xl bg-[var(--bg-deep)] border border-[var(--border-subtle)] flex items-center gap-4">
                   {/* 10x10 Dot Matrix Grid */}
                   <div className="shrink-0">
                     <DotMeter
                       percentage={featuredModel.empiricalReplicationPercentage}
-                      color="#d5cf66"
-                      mutedColor="#3d3532"
                       size="sm"
                     />
                   </div>
 
                   {/* Bold callout text */}
-                  <div className="text-xs sm:text-sm font-black text-[#d5cf66] leading-snug">
+                  <div className="text-xs sm:text-sm font-black text-[var(--accent-gold)] leading-snug">
                     {featuredModel.replicationPunchline}
                   </div>
                 </div>
@@ -256,7 +254,7 @@ export default function MindAtlasHomePage() {
                 }}
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-black transition-all cursor-pointer ${
                   isSelected
-                    ? "ring-2 ring-offset-2 ring-offset-[#1e1a17] ring-white scale-105"
+                    ? "ring-2 ring-offset-2 ring-offset-[var(--bg-page)] ring-[var(--ink-primary)] scale-105"
                     : "hover:scale-[1.03] active:scale-[0.98]"
                 }`}
                 style={{
@@ -279,13 +277,13 @@ export default function MindAtlasHomePage() {
       {/* BROWSE BY CONCEPT TYPE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 w-full">
         <div className="flex items-center justify-between mb-5">
-          <h2 className="font-heading text-2xl sm:text-3xl font-black text-[#f2ebe2] tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-3xl font-black text-[var(--ink-primary)] tracking-tight">
             Browse by concept type
           </h2>
           {selectedType && (
             <button
               onClick={() => setSelectedType(null)}
-              className="text-xs font-bold text-[#b8ada2] hover:text-[#f2ebe2] underline cursor-pointer"
+              className="text-xs font-bold text-[var(--ink-muted)] hover:text-[var(--ink-primary)] underline cursor-pointer"
             >
               Reset concept filter
             </button>
@@ -305,12 +303,12 @@ export default function MindAtlasHomePage() {
                 }}
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-black border transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-[#d5cf66] text-[#232402] border-[#d5cf66] scale-105"
-                    : "bg-[#272220] hover:bg-[#322b28] border-[#3d3532] text-[#f2ebe2] hover:border-[#574d48]"
+                    ? "bg-[var(--accent-gold)] text-[var(--accent-gold-text)] border-[var(--accent-gold)] scale-105"
+                    : "bg-[var(--pill-unselected-bg)] hover:bg-[var(--bg-surface-raised)] border-[var(--border-subtle)] text-[var(--ink-primary)] hover:border-[var(--border-strong)]"
                 }`}
               >
                 <span>{type.label}</span>
-                <span className={isSelected ? "text-[#232402]/80" : "text-[#82756a]"}>
+                <span className={isSelected ? "text-[var(--accent-gold-text)]/80" : "text-[var(--ink-muted)]"}>
                   · {type.count}
                 </span>
               </button>
